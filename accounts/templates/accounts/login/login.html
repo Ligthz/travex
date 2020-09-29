@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>FGV</title>
+    <link rel="stylesheet" href="{% static '/css/login-style.css' %}">
+    <link href="{% static 'images/favicon.png' %}" rel="shortcut icon">
+  </head>
+  <body>
+    <div class="center">
+      <h3>FGV Group<br><br>Data Logging System </h3>
+      <form method="POST" action="">
+	  	{% csrf_token %}
+        <div class="txt_field">
+          <input type="text" name="username" placeholder="Username..." required>
+          <span></span>
+          <label>Username</label>
+        </div>
+        <div class="txt_field">
+          <input type="password" name="password" placeholder="Password..." required>
+          <span></span>
+          <label>Password</label>
+        </div>
+        <!--div class="pass">
+			<a href="{% url 'reset_password' %}" class="ml-2">
+				Forgot password? 
+			</a>
+		</div-->
+        <input type="submit" value="Login">
+        <div class="signup_link">
+          Not a member? <a href="{% url 'register' %}">Signup</a>
+        </div>
+      </form>
+    </div>
+{% for message in messages %}
+					<p id="messages">{{message}}</p>
+				{% endfor %}
+  </body>
+</html>

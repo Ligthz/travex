@@ -1,0 +1,77 @@
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+
+<script type="text/javascript">
+           
+window.onload = function(e){ 
+    // Set new default font family and font color to mimic Bootstrap's default styling
+Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+Chart.defaults.global.defaultFontColor = '#292b2c';
+
+// Area Chart Example
+{% for chart in charts %}
+var ctx = document.getElementById("myGraph{{forloop.counter}}");
+var myLineChart = new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: [
+    {% for xs in x %}
+      "{{xs}}",
+    {% endfor%}],
+    datasets: [
+    {% for data in chart.data %}
+      {
+        label: "{{data.2}}",
+        lineTension: 0.3,
+        backgroundColor: "rgba(255,255,255,0)",
+        borderColor: "rgba({{data.1.0}},{{data.1.1}},{{data.1.2}},0.5)",
+        pointRadius: 1,
+        pointBackgroundColor: "rgba({{data.1.0}},{{data.1.1}},{{data.1.2}},0.2)",
+        pointBorderColor: "rgba({{data.1.0}},{{data.1.1}},{{data.1.2}},0.3)",
+        pointHoverRadius: 5,
+        pointHoverBackgroundColor: "rgba({{data.1.0}},{{data.1.1}},{{data.1.2}},0.75)",
+        pointHitRadius: 50,
+        pointBorderWidth: 2,
+        data: [
+        {% for d in data.0 %}
+          {{d}},
+        {% endfor %}
+        ],
+      },
+    {% endfor %}
+    ],
+  },
+  options: {
+    scales: {
+      xAxes: [{
+        time: {
+          unit: 'time'
+        },
+        gridLines: {
+          display: true
+        },
+        ticks: {
+          maxTicksLimit: 7
+        }
+      }],
+      yAxes: [{
+        ticks: {
+          min: {{chart.minmax.0}},
+          max: {{chart.minmax.1}},
+          maxTicksLimit: 5
+        },
+        gridLines: {
+          color: "rgba(0, 0, 0, .125)",
+        }
+      }],
+    },
+    legend: {
+      display: true
+    }
+  }
+});
+{% endfor %}
+
+}
+
+</script>
