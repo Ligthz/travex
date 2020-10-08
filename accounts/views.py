@@ -224,13 +224,13 @@ def home(request):
                 datas.generate_chart(temp_name[i],obj.Code,upper_limit,low_limit)
                 i+=1
         
-        datas.generate_table()
-        if len(datas.tables[1])>200:
-            datas.tables[1] = datas.tables[1][-200:]
+        #datas.generate_table()
+        #if len(datas.tables[1])>200:
+        #    datas.tables[1] = datas.tables[1][-200:]
         # add in ticket
         tickets = []
         #objs_dict = LogData.objects.filter(Machine__Page="MetalDect")
-        ticket_list = ["FFA-1","VM-1","OC-1"]
+        ticket_list = ["FFA-1","VM-1","OC-1","VMO-1","OS-1"]
         data_objs = LogData.objects.filter(DateCreated__range=time_range)
         for tick in ticket_list:
             data_obj = data_objs.filter(Machine__Code=tick)
@@ -248,7 +248,8 @@ def home(request):
         #print(tickets)
 
 
-        context = {'data':datas.tables,'NoData':datas.no_data, 'charts':datas.charts, 'x':datas.x, 'tickets':tickets}
+        #context = {'data':datas.tables,'NoData':datas.no_data, 'charts':datas.charts, 'x':datas.x, 'tickets':tickets}
+        context = {'NoData':datas.no_data, 'charts':datas.charts, 'x':datas.x, 'tickets':tickets}
     
     else:
         tables = [[],[]]
