@@ -240,6 +240,29 @@ def home(request):
             else:
                 print(data_obj)
                 tickets.append(["",0])
+
+        tickets2 = []
+        ticket_list = ["STD-V1","STD-V0","PQ-V1","PQ-V0"]
+        data_objs = LogData.objects.filter(DateCreated__range=time_range)
+        for tick in ticket_list:
+            data_obj = data_objs.filter(Machine__Code=tick)
+            if len(data_obj) > 0:
+                data_obj = data_obj[len(data_obj)-1]
+                tickets2.append([data_obj.Machine.Name,data_obj.Value])
+            else:
+                print(data_obj)
+                tickets2.append(["",0])
+
+        tickets3 = [[],[]]
+        if tickets2[0][0] == 1:
+            tickets2[0] = ["Standard Valve Status","On"]
+        else:
+            tickets2[0] = ["Standard Valve Status","Off"]
+            
+        if tickets2[2][0] == 1:
+            tickets2[1] = ["PQ Status","On"]
+        else:
+            tickets2[1] = ["PQ Status","Off"]
         #print(objs)
         #objs_dict = {}
         #for obj in objs:
@@ -249,7 +272,7 @@ def home(request):
 
 
         #context = {'data':datas.tables,'NoData':datas.no_data, 'charts':datas.charts, 'x':datas.x, 'tickets':tickets}
-        context = {'NoData':datas.no_data, 'charts':datas.charts, 'x':datas.x, 'tickets':tickets}
+        context = {'NoData':datas.no_data, 'charts':datas.charts, 'x':datas.x, 'tickets':tickets, 'tickets2':tickets}
     
     else:
         tables = [[],[]]

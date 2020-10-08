@@ -27,6 +27,25 @@
         {% endfor %}
     </div>
     <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active">Valve Status</li>
+    </ol>
+    <div class="row">
+        {% for ticket in tickets2 %}
+            <div class="col-ld">
+                <div class="col-md">
+                    <div class="card text-center text-white  mb-3" id="body{{forloop.counter}}">
+                        <div class="card-header">
+                            <h5 class="card-title"> {{ticket.0}} </h5>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">{{ticket.1}}</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item active">Today Production Graph</li>
     </ol>
     <div class="row">
