@@ -207,7 +207,9 @@ def home(request):
         datas = graph("All",time_range)
 
         wanted_list = ["TEE-901","TE-411","PT-402A"]
+        temp_name = ["KKS Tenammaran OC (%)","KKS Tenammaran VM (%)","KKS Tenammaran FFA (%)"] ## TEMPERARY !!
         objs = MachineData.objects.all()
+        i = 0
         for obj in objs:
             if obj.Code in wanted_list:
                 if "-" not in obj.low_limit:
@@ -219,7 +221,8 @@ def home(request):
                 else:
                     upper_limit = False
                 #print(upper_limit, low_limit)
-                datas.generate_chart(obj.Line+" Line : "+obj.Name+" : "+obj.Parameter+" "+obj.Code+" ("+obj.Unit+")",obj.Code,upper_limit,low_limit)
+                datas.generate_chart(temp_name[i],obj.Code,upper_limit,low_limit)
+                i+=1
         
         datas.generate_table()
         if len(datas.tables[1])>200:
@@ -227,11 +230,20 @@ def home(request):
         # add in ticket
         tickets = []
         #objs_dict = LogData.objects.filter(Machine__Page="MetalDect")
-        objs = MachineData.objects.filter(Page="MetalDect")
+        ticket_list = ["FFA-1","VM-1","OC-1"]
+        data_objs = LogData.objects.filter(DateCreated__range=time_range)
+        for tick in ticket_list:
+            data_obj = data_objs.filter(Machine__Code=tick)
+            if len(data_obj) > 0:
+                data_obj = data_obj[len(data_obj)-1]
+                tickets.append([data_obj.Machine.Name,str(data_obj.Value)+" %"])
+            else:
+                print(data_obj)
+                tickets.append(["",0])
         #print(objs)
         #objs_dict = {}
-        for obj in objs:
-            tickets.append([obj.Name,LogData.objects.filter(Machine=obj,DateCreated__range=time_range).count()])
+        #for obj in objs:
+        #    tickets.append([obj.Machine,LogData.objects.filter(Machine=obj,DateCreated__range=time_range).count()])
         #print(objs_dict)
         #print(tickets)
 
