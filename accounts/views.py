@@ -255,14 +255,14 @@ def home(request):
 
         tickets3 = [[],[]]
         if tickets2[0][0] == 1:
-            tickets2[0] = ["Standard Valve Status","On"]
+            tickets3[0] = ["Standard Valve Status","On"]
         else:
-            tickets2[0] = ["Standard Valve Status","Off"]
+            tickets3[0] = ["Standard Valve Status","Off"]
             
         if tickets2[2][0] == 1:
-            tickets2[1] = ["PQ Status","On"]
+            tickets3[1] = ["PQ Status","On"]
         else:
-            tickets2[1] = ["PQ Status","Off"]
+            tickets3[1] = ["PQ Status","Off"]
         #print(objs)
         #objs_dict = {}
         #for obj in objs:
@@ -272,7 +272,7 @@ def home(request):
 
 
         #context = {'data':datas.tables,'NoData':datas.no_data, 'charts':datas.charts, 'x':datas.x, 'tickets':tickets}
-        context = {'NoData':datas.no_data, 'charts':datas.charts, 'x':datas.x, 'tickets':tickets, 'tickets2':tickets}
+        context = {'NoData':datas.no_data, 'charts':datas.charts, 'x':datas.x, 'tickets':tickets, 'tickets2':tickets3}
     
     else:
         tables = [[],[]]
