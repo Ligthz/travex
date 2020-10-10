@@ -93,6 +93,7 @@ class MachineData(models.Model):
     Unit = models.CharField(max_length=10)
     low_limit = models.CharField(max_length=10)
     upper_limit = models.CharField(max_length=10)
+    Value = models.DecimalField(decimal_places = 2, max_digits=8, default=0.00)
     DateCreated = models.DateTimeField(auto_now_add=True)
     LastEdit = models.DateTimeField(null=True)
     Dev = models.CharField(max_length=30, null=True)

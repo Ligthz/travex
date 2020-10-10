@@ -1,12 +1,36 @@
 {%  extends 'accounts/main.html' %}
-
+{% load static %}
 {% block scripts %}
     {%  include 'accounts/dashboard_js.html' %}
+    <link rel="stylesheet" href="{% static '/css/LED.css' %}">
 {% endblock %}
 
 {% block content %}
 <div class="container-fluid">
     <h1 class="mt-4">Dashboard</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active">Valve Status</li>
+    </ol>
+    <div class="row">
+                <div class="led-box">
+                    <p>STD Valve Status</p>
+                    {% if tickets2.0 == 1 %}
+                        <div class="led-green"></div>
+                    {% else %}
+                        <div class="led-red"></div>
+                    {% endif %}
+                   
+                </div>
+
+                <div class="led-box"><p>PQ Valve Status</p>
+                    {% if tickets2.1 == 1 %}
+                        <div class="led-green"></div>
+                    {% else %}
+                        <div class="led-red"></div>
+                    {% endif %}
+                    
+                </div>
+    </div><br><br><br>
     <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item active">Real Time Data</li>
     </ol>
@@ -26,25 +50,7 @@
             </div>
         {% endfor %}
     </div>
-    <ol class="breadcrumb mb-4">
-        <li class="breadcrumb-item active">Valve Status</li>
-    </ol>
-    <div class="row">
-        {% for ticket in tickets2 %}
-            <div class="col-ld">
-                <div class="col-md">
-                    <div class="card text-center text-white  mb-3" id="body{{forloop.counter}}">
-                        <div class="card-header">
-                            <h5 class="card-title"> {{ticket.0}} </h5>
-                        </div>
-                        <div class="card-body">
-                            <h3 class="card-title">{{ticket.1}}</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        {% endfor %}
-    </div>
+    
     <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item active">Today Production Graph</li>
     </ol>

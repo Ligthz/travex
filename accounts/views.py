@@ -27,8 +27,8 @@ def randomString():
     return ''.join(random.choice(letters) for i in range(12))
 
 def time_now():
-    #current_time = datetime.datetime.now()+datetime.timedelta(hours=16)
-    current_time = datetime.datetime(2020, 8, 24)
+    current_time = datetime.datetime.now()+datetime.timedelta(hours=16)
+    #current_time = datetime.datetime(2020, 8, 24)
     
     
     return current_time    
@@ -206,8 +206,8 @@ def home(request):
         time_range=[current_time-datetime.timedelta(hours=12),current_time]
         datas = graph("All",time_range)
 
-        wanted_list = ["TEE-901","TE-411","PT-402A"]
-        temp_name = ["KKS Tenammaran OC (%)","KKS Tenammaran VM (%)","KKS Tenammaran FFA (%)"] ## TEMPERARY !!
+        wanted_list = ["FFA-1","VM-1","OC-1","VMO-1","OS-1"]
+        temp_name = ["KKS Tenammaran FFA (%)","KKS Tenammaran VM (%)","KKS Tenammaran OC (%)","KKS Tenammaran VMO (%)","KKS Tenammaran OS (%)"] ## TEMPERARY !!
         objs = MachineData.objects.all()
         i = 0
         for obj in objs:
@@ -231,48 +231,19 @@ def home(request):
         tickets = []
         #objs_dict = LogData.objects.filter(Machine__Page="MetalDect")
         ticket_list = ["FFA-1","VM-1","OC-1","VMO-1","OS-1"]
-        data_objs = LogData.objects.filter(DateCreated__range=time_range)
+        data_objs = MachineData.objects.all()
         for tick in ticket_list:
-            data_obj = data_objs.filter(Machine__Code=tick)
-            if len(data_obj) > 0:
-                data_obj = data_obj[len(data_obj)-1]
-                tickets.append([data_obj.Machine.Name,str(data_obj.Value)+" %"])
-            else:
-                print(data_obj)
-                tickets.append(["",0])
+            data_obj = data_objs.get(Code=tick)
+            tickets.append([data_obj.Name,str(data_obj.Value)+" %"])
 
         tickets2 = []
-        ticket_list = ["STD-V1","STD-V0","PQ-V1","PQ-V0"]
-        data_objs = LogData.objects.filter(DateCreated__range=time_range)
+        ticket_list = ["STD-V1","PQ-V1"]
+        data_objs = MachineData.objects.all()
         for tick in ticket_list:
-            data_obj = data_objs.filter(Machine__Code=tick)
-            if len(data_obj) > 0:
-                data_obj = data_obj[len(data_obj)-1]
-                tickets2.append([data_obj.Machine.Name,data_obj.Value])
-            else:
-                print(data_obj)
-                tickets2.append(["",0])
+            data_obj = data_objs.get(Code=tick)
+            tickets2.append(data_obj.Value)
 
-        tickets3 = [[],[]]
-        if tickets2[0][0] == 1:
-            tickets3[0] = ["Standard Valve Status","On"]
-        else:
-            tickets3[0] = ["Standard Valve Status","Off"]
-            
-        if tickets2[2][0] == 1:
-            tickets3[1] = ["PQ Status","On"]
-        else:
-            tickets3[1] = ["PQ Status","Off"]
-        #print(objs)
-        #objs_dict = {}
-        #for obj in objs:
-        #    tickets.append([obj.Machine,LogData.objects.filter(Machine=obj,DateCreated__range=time_range).count()])
-        #print(objs_dict)
-        #print(tickets)
-
-
-        #context = {'data':datas.tables,'NoData':datas.no_data, 'charts':datas.charts, 'x':datas.x, 'tickets':tickets}
-        context = {'NoData':datas.no_data, 'charts':datas.charts, 'x':datas.x, 'tickets':tickets, 'tickets2':tickets3}
+        context = {'NoData':datas.no_data, 'charts':datas.charts, 'x':datas.x, 'tickets':tickets, 'tickets2':tickets2}
     
     else:
         tables = [[],[]]
@@ -460,6 +431,7 @@ def iotcore(request):
                 #print("trigger")
                 data_list = parsedJSON['data'].split("@@")
                 #print(data_list)
+                start_rec = False
                 for d in data_list[0:-1]:
                     data = d.split("#")
                     machine = MachineData.objects.get(Address=data[0],IP=data[2])
@@ -472,12 +444,16 @@ def iotcore(request):
                         current_time = datetime.datetime.strptime(current_time, '%Y-%m-%d %H:%M:%S')
                     except Exception as e:
                         current_time = time_now()
-                    log_obj = LogData(Value = value, Machine = machine, DateCreated = current_time)
-                    log_obj.save()
                     machine.LastEdit = current_time
+                    machine.Value = value
                     machine.save()
                     dev_obj.LastSeen = current_time
                     dev_obj.save()
+                    last_log = LogData.objects.latest('DateCreated')
+                    if time_now() - last_log.DateCreated > datetime.timedelta(minutes=10) or start_rec == True:
+                        log_obj = LogData(Value = value, Machine = machine, DateCreated = current_time)
+                        log_obj.save()
+                        start_rec = True
 
                 if 'message' in parsedJSON:
                     msg = parsedJSON['message']

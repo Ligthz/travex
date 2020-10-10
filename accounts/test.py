@@ -34,7 +34,6 @@ def change_line():
             print(obj,obj.Line)
 
 
-
 def read_list():
     print("started reading")
     data = []

@@ -20,7 +20,7 @@ class UserActionAdmin(admin.ModelAdmin):
         model = UserAction
 
 class MachineAdmin(admin.ModelAdmin):
-    list_display = ["Code","Name","Line","Page","Parameter","Address","Unit","LastEdit","Dev"]
+    list_display = ["Code","Name","Line","Page","Parameter","Address","Value","Unit","LastEdit","Dev"]
     list_filter = ["Line","Page","Unit","Dev","Parameter"]
     search_fields = ["Line","Page","Code","Parameter","Address","Unit","LastEdit","Dev"]
     class Meta:
