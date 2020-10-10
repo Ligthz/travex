@@ -27,7 +27,7 @@ def randomString():
     return ''.join(random.choice(letters) for i in range(12))
 
 def time_now():
-    current_time = datetime.datetime.now()+datetime.timedelta(hours=16)
+    current_time = datetime.datetime.now()+datetime.timedelta(hours=-10)
     #current_time = datetime.datetime(2020, 8, 24)
     
     
@@ -102,7 +102,7 @@ class graph:
             machine_objs = MachineData.objects.filter(Code = machine)
 
         for machine_obj in machine_objs:
-            unit = machine_obj.Unit.upper()
+            unit = machine_obj.Unit
             if unit not in self.unit_list:
                 self.unit_list.append(unit)
 
@@ -168,16 +168,16 @@ class graph:
                     trig = False
                 if trig == True:
                     if self.charts[-1]["minmax"][0]>min(data_dict[rw]):
-                        self.charts[-1]["minmax"][0] = min(data_dict[rw])
+                        self.charts[-1]["minmax"][0] = round(min(data_dict[rw]),2)
                     if self.charts[-1]["minmax"][1]<max(data_dict[rw]):
-                        self.charts[-1]["minmax"][1] = max(data_dict[rw])*1.2
+                        self.charts[-1]["minmax"][1] = round(max(data_dict[rw])*1.2,2)
 
                     if lower_limit != False:
                         if self.charts[-1]["minmax"][0]>lower_limit:
-                            self.charts[-1]["minmax"][0] = lower_limit*0.9
+                            self.charts[-1]["minmax"][0] = round(lower_limit*0.9,2)
                     if upper_limit != False:
                         if self.charts[-1]["minmax"][1]<upper_limit:
-                            self.charts[-1]["minmax"][1] = upper_limit*1.1
+                            self.charts[-1]["minmax"][1] = round(upper_limit*1.1,2)
 
                     clr = hsv2rgb(float(k)/float(len(data_dict)),1.0,1.0)
                     self.charts[-1]["data"].append([data_dict[rw],list(clr),rw])
@@ -204,6 +204,7 @@ def home(request):
     if user.is_admin or user.is_staff:
         current_time = time_now()
         time_range=[current_time-datetime.timedelta(hours=12),current_time]
+        print(time_range)
         datas = graph("All",time_range)
 
         wanted_list = ["FFA-1","VM-1","OC-1","VMO-1","OS-1"]
@@ -223,6 +224,7 @@ def home(request):
                 #print(upper_limit, low_limit)
                 datas.generate_chart(temp_name[i],obj.Code,upper_limit,low_limit)
                 i+=1
+        print(datas.charts[0])
         
         #datas.generate_table()
         #if len(datas.tables[1])>200:
