@@ -270,16 +270,19 @@ def data_landing(request,datatype,line):
     if request.method == 'POST':
         machine = request.POST.get('Machine')
         date1 = request.POST.get('date1')
-        if date1 == '':
-            date1 = '2020-01-01'
-        date1 = datetime.datetime.strptime(date1, '%Y-%m-%d')
         date2 = request.POST.get('date2')
-        if date2 == '':
-            date2 = '2120-01-01'
-        record_action(request.user,"View "+machine+" Machine Data "+str(date1)+" to "+str(date2))
-        date2 = datetime.datetime.strptime(date2, '%Y-%m-%d')
+        if date1 == '':
+            date1 = '2020-01-01T00:00'
 
-        time_range=[date1,date2+datetime.timedelta(hours=24)]
+        date1 = datetime.datetime.strptime(date1, '%Y-%m-%dT%H:%M')
+        if date2 == '':
+            date2 = '2120-01-01T23:59'
+        record_action(request.user,"View "+machine+" Machine Data "+str(date1)+" to "+str(date2))
+        date2 = datetime.datetime.strptime(date2, '%Y-%m-%dT%H:%M')
+
+        print(date1)
+        print(date2)
+        time_range=[date1,date2]
         if date2 == date1:
             datas = graph(machine,time_range,Line=line,DateRange=True)
         else:
@@ -302,7 +305,7 @@ def data_landing(request,datatype,line):
             #print(upper_limit, low_limit)
             datas.generate_chart(obj.Line+" Line : "+obj.Name+" : "+obj.Parameter+" "+obj.Code+" ("+obj.Unit+")",obj.Code,upper_limit,low_limit)
         
-        header = [line+" Line Data","Graphical Data from "+str(date1)+" to "+str(date2+datetime.timedelta(hours=24)),"Tabulated Data"]
+        header = [line+" Line Data","Graphical Data from "+str(date1)+" to "+str(date2),"Tabulated Data"]
         
         context = {'data':datas.tables,'NoData':datas.no_data,'Header':header,'x':datas.x,'charts':datas.charts}
 
