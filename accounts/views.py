@@ -27,7 +27,7 @@ def randomString():
     return ''.join(random.choice(letters) for i in range(12))
 
 def time_now():
-    current_time = datetime.datetime.now()+datetime.timedelta(hours=-10)
+    current_time = datetime.datetime.now()+datetime.timedelta(hours=16)
     #current_time = datetime.datetime(2020, 8, 24)
     
     
