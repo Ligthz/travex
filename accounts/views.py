@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect 
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.forms import inlineformset_factory
 from django.contrib.auth.forms import UserCreationForm
 
@@ -200,6 +200,15 @@ class graph:
 @admin_only
 def home(request):
     user = request.user
+    if request.is_ajax():
+        tickets = []
+        #objs_dict = LogData.objects.filter(Machine__Page="MetalDect")
+        ticket_list = ["FFA-1","VM-1","OC-1","VMO-1","OS-1"]
+        data_objs = MachineData.objects.all()
+        for tick in ticket_list:
+            data_obj = data_objs.get(Code=tick)
+            tickets.append([data_obj.Name,str(data_obj.Value)+" %"])
+        return JsonResponse({"success":True,"tickets":tickets})
     record_action(request.user,"Home")
     if user.is_admin or user.is_staff:
         current_time = time_now()
