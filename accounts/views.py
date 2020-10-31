@@ -14,13 +14,14 @@ from django.utils import timezone
 # Create your views here.
 from .models import *
 from .forms import *
-from .filters import *
 from .decorators import unauthenticated_user, allowed_users, admin_only
+from crm1.settings import MEDIA_ROOT
 
 import random
 import string
 import colorsys
 import json
+import os
 
 def randomString():
     letters = string.ascii_letters
@@ -63,7 +64,11 @@ def loginPage(request):
             record_action(request.user,"Login")
             return redirect('home')
         else:
-            messages.info(request, 'Username OR password is incorrect')
+            if request.user.is_active == False:
+                messages.info(request, 'Please wait for admin to activate your account.')
+                return redirect('mobile-home')
+            else:
+                messages.info(request, 'Username OR password is incorrect')
 
     context = {}
     return render(request, 'accounts/login/login.html', context)
@@ -83,185 +88,17 @@ def record_action(user,action):
     action_obj = UserAction(user = user, action = action)
     action_obj.save()
 
-class graph:
-    def __init__(self,machine,time_range,**kwargs):
-        self.unit_list = []
-        self.no_data = True
-        self.data_list = []
-
-        if machine == "All" or machine == "all" or machine == None:
-            if "Line" in kwargs:
-                self.data_objs = LogData.objects.filter(DateCreated__range=time_range, Machine__Line=kwargs["Line"])
-                machine_objs = MachineData.objects.filter(Line = kwargs["Line"])
-            else: 
-                self.data_objs = LogData.objects.filter(DateCreated__range=time_range)
-                machine_objs = MachineData.objects.all()
-        else:
-            machine_obj = MachineData.objects.get(Code = machine)
-            self.data_objs = LogData.objects.filter(Machine=machine_obj,DateCreated__range=time_range)
-            machine_objs = MachineData.objects.filter(Code = machine)
-
-        for machine_obj in machine_objs:
-            unit = machine_obj.Unit
-            if unit not in self.unit_list:
-                self.unit_list.append(unit)
-
-        for unit in self.unit_list:
-            self.data_list.append({})
-            
-        if len(self.data_objs)>0:
-            self.no_data = False
-            for k,obj in enumerate(self.data_objs):
-                if obj.Machine.Unit in self.unit_list:
-                    i = self.unit_list.index(obj.Machine.Unit)
-                    if obj.Machine.Code in self.data_list[i]:
-                        self.data_list[i][obj.Machine.Code].append(round(float(obj.Value),2))
-                    else:
-                        self.data_list[i][obj.Machine.Code] = [round(float(obj.Value),2)]
-
-        self.charts = []
-        self.title_list = []
-        self.xs = {} # get time (x-axis)
-        if "DateRange" in kwargs:
-            for k,obj in enumerate(self.data_objs):
-                if k == 0:
-                    self.xs[obj.Machine.Code] = [str(obj.DateCreated)]
-                elif obj.Machine.Code in self.xs:
-                    self.xs[obj.Machine.Code].append(str(obj.DateCreated))
-                else:
-                    pass
-            #print(self.xs)
-        else:
-            for k,obj in enumerate(self.data_objs):
-                if k == 0:
-                    self.xs[obj.Machine.Code] = [str(obj.DateCreated).split(" ")[-1]]
-                elif obj.Machine.Code in self.xs:
-                    self.xs[obj.Machine.Code].append(str(obj.DateCreated).split(" ")[-1])
-                else:
-                    pass
-        self.x = [] # convert to list form
-        for ob in self.xs:
-            for i in self.xs[ob]:
-                self.x.append(i.split(".")[0])
-        #print(self.data_list)
-
-    def generate_chart(self,title,code,upper_limit,lower_limit):
-        self.title_list.append(title)
-        self.charts.append({"data":[],"minmax":[0,1],"title":title})
-        if upper_limit != False:
-            limit = []
-            for x in self.x:
-                limit.append(round(float(upper_limit),2))
-            self.charts[-1]["data"].append([limit,[100,10,10],"Upper Limit"])
-        if lower_limit != False:
-            limit = []
-            for x in self.x:
-                limit.append(round(float(lower_limit),2))
-            self.charts[-1]["data"].append([limit,[140,10,10],"Lower Limit"])
-        for no,data_dict in enumerate(self.data_list):
-            for k,rw in enumerate(data_dict):
-                if "list" in str(type(code)) and rw in code:
-                    trig = True
-                elif code == rw:
-                    trig = True
-                else:
-                    trig = False
-                if trig == True:
-                    if self.charts[-1]["minmax"][0]>min(data_dict[rw]):
-                        self.charts[-1]["minmax"][0] = round(min(data_dict[rw]),2)
-                    if self.charts[-1]["minmax"][1]<max(data_dict[rw]):
-                        self.charts[-1]["minmax"][1] = round(max(data_dict[rw])*1.2,2)
-
-                    if lower_limit != False:
-                        if self.charts[-1]["minmax"][0]>lower_limit:
-                            self.charts[-1]["minmax"][0] = round(lower_limit*0.9,2)
-                    if upper_limit != False:
-                        if self.charts[-1]["minmax"][1]<upper_limit:
-                            self.charts[-1]["minmax"][1] = round(upper_limit*1.1,2)
-
-                    clr = hsv2rgb(float(k)/float(len(data_dict)),1.0,1.0)
-                    self.charts[-1]["data"].append([data_dict[rw],list(clr),rw])
-                    
-        
-
-    def generate_table(self):
-        self.tables = [[],[]] #[0] = para , [1] = data rw
-        if len(self.data_objs)>0:
-            self.no_data = False
-            self.tables[0] = self.data_objs[0].parameter()
-            for k,obj in enumerate(self.data_objs):
-                list_buff = obj.list()
-                list_buff[3] = round(float(list_buff[3]),2)
-                self.tables[1].append(list_buff)
-    
-
-
 @login_required(login_url='login')
 @admin_only
+@csrf_exempt
 def home(request):
     user = request.user
     if request.is_ajax():
-        tickets = []
-        #objs_dict = LogData.objects.filter(Machine__Page="MetalDect")
-        ticket_list = ["FFA-1","VM-1","OC-1","VMO-1","OS-1"]
-        data_objs = MachineData.objects.all()
-        for tick in ticket_list:
-            data_obj = data_objs.get(Code=tick)
-            tickets.append([data_obj.Name,str(data_obj.Value)+" %"])
-        return JsonResponse({"success":True,"tickets":tickets})
+        datas = []
+        return JsonResponse({"success":True,"datas":datas})
     record_action(request.user,"Home")
-    if user.is_admin or user.is_staff:
-        current_time = time_now()
-        time_range=[current_time-datetime.timedelta(hours=12),current_time]
-        print(time_range)
-        datas = graph("All",time_range)
 
-        wanted_list = ["FFA-1","VM-1","OC-1","VMO-1","OS-1"]
-        temp_name = ["KKS Tenammaran FFA (%)","KKS Tenammaran VM (%)","KKS Tenammaran OC (%)","KKS Tenammaran VMO (%)","KKS Tenammaran OS (%)"] ## TEMPERARY !!
-        objs = MachineData.objects.all()
-        i = 0
-        for obj in objs:
-            if obj.Code in wanted_list:
-                if "-" not in obj.low_limit:
-                    low_limit = float(obj.low_limit)
-                else:
-                    low_limit = False
-                if "-" not in obj.upper_limit:
-                    upper_limit = float(obj.upper_limit)
-                else:
-                    upper_limit = False
-                #print(upper_limit, low_limit)
-                datas.generate_chart(temp_name[i],obj.Code,upper_limit,low_limit)
-                i+=1
-        print(datas.charts[0])
-        
-        #datas.generate_table()
-        #if len(datas.tables[1])>200:
-        #    datas.tables[1] = datas.tables[1][-200:]
-        # add in ticket
-        tickets = []
-        #objs_dict = LogData.objects.filter(Machine__Page="MetalDect")
-        ticket_list = ["FFA-1","VM-1","OC-1","VMO-1","OS-1"]
-        data_objs = MachineData.objects.all()
-        for tick in ticket_list:
-            data_obj = data_objs.get(Code=tick)
-            tickets.append([data_obj.Name,str(data_obj.Value)+" %"])
-
-        tickets2 = []
-        ticket_list = ["STD-V1","PQ-V1"]
-        data_objs = MachineData.objects.all()
-        for tick in ticket_list:
-            data_obj = data_objs.get(Code=tick)
-            tickets2.append(data_obj.Value)
-
-        context = {'NoData':datas.no_data, 'charts':datas.charts, 'x':datas.x, 'tickets':tickets, 'tickets2':tickets2}
-    
-    else:
-        tables = [[],[]]
-        context = {'data':[[],[]],'NoData':True, 'charts':[], 'x':[], 'ticket':[]}
-
-
-    return render(request, 'accounts/dashboard.html', context)
+    return render(request, 'accounts/dashboard.html')
 
 @login_required(login_url='login')
 def userPage(request):
@@ -277,7 +114,7 @@ def userPage(request):
 def data_landing(request,datatype,line):
     user = request.user
     if request.method == 'POST':
-        machine = request.POST.get('Machine')
+        personal = request.POST.get('Machine')
         date1 = request.POST.get('date1')
         date2 = request.POST.get('date2')
         if date1 == '':
@@ -286,47 +123,41 @@ def data_landing(request,datatype,line):
         date1 = datetime.datetime.strptime(date1, '%Y-%m-%dT%H:%M')
         if date2 == '':
             date2 = '2120-01-01T23:59'
-        record_action(request.user,"View "+machine+" Machine Data "+str(date1)+" to "+str(date2))
         date2 = datetime.datetime.strptime(date2, '%Y-%m-%dT%H:%M')
 
-        print(date1)
-        print(date2)
         time_range=[date1,date2]
-        if date2 == date1:
-            datas = graph(machine,time_range,Line=line,DateRange=True)
-        else:
-            datas = graph(machine,time_range,Line=line,DateRange=True)
-        datas.generate_table()
 
-        if "All" in machine or "all" in machine:
-            objs = MachineData.objects.filter(Line=line)
+        if "All" not in personal:
+            data_objs = LogData.objects.filter(DateCreated__range=time_range,PIC=personal)
         else:
-            objs = MachineData.objects.filter(Code=machine)
-        for obj in objs:
-            if "-" not in obj.low_limit:
-                low_limit = float(obj.low_limit)
-            else:
-                low_limit = False
-            if "-" not in obj.upper_limit:
-                upper_limit = float(obj.upper_limit)
-            else:
-                upper_limit = False
-            #print(upper_limit, low_limit)
-            datas.generate_chart(obj.Line+" Line : "+obj.Name+" : "+obj.Parameter+" "+obj.Code+" ("+obj.Unit+")",obj.Code,upper_limit,low_limit)
+            data_objs = LogData.objects.filter(DateCreated__range=time_range)
+
+        datas = [[],[]]
+        if len(data_objs) == 0:
+            no_data = True
+        else:
+            no_data = False
         
-        header = [line+" Line Data","Graphical Data from "+str(date1)+" to "+str(date2),"Tabulated Data"]
+            para = data_objs[0].parameter()
+            data = []
+            for obj in data_objs:
+                data.append(obj.list())
+            datas[0] = para
+            datas[1] = data
+
+        header = [line+" Site Data","Logged Data of personal : " +str(personal)+" from "+str(date1)+" to "+str(date2),"Tabulated Data"]
         
-        context = {'data':datas.tables,'NoData':datas.no_data,'Header':header,'x':datas.x,'charts':datas.charts}
+        context = {'data':datas,'NoData':no_data,'Header':header}
 
         return render(request, 'CRUD/tabulate.html', context)
     else:
-        machine_list = []
-        machine_obj = MachineData.objects.filter(Line=line)
-        for mac in machine_obj:
-            machine_list.append([mac.Code,mac.Name])
-        machine_list.sort()
-        header = [line+" Line","Data Analysis","Data Filter"]
-        context = {'Machine':machine_list,'Header':header,"Line":line}#'statuses':statuses, 'tables':tables}
+        personal_list = []
+        account_obj = Account.objects.filter(Site=line)
+        for personal in account_obj:
+            personal_list.append([personal.name, personal.Site])
+        personal_list.sort()
+        header = [line+" Site","Data Analysis","Data Filter"]
+        context = {'Machine':personal_list,'Header':header,"Line":line}#'statuses':statuses, 'tables':tables}
 
         return render(request, 'CRUD/landing.html', context)
 
@@ -359,41 +190,6 @@ def machine(request):
 
 
 @login_required(login_url='login')
-@admin_only
-def data_plot(request,datatype,daytype):
-    user = request.user
-    record_action(request.user,"View "+str(datatype)+" Plot Data "+str(daytype))
-    datatype = datatype.upper()
-    if user.is_admin or user.is_staff:
-        current_time = time_now()
-        time_range=[current_time-datetime.timedelta(hours=24),current_time]
-        datas = graph("all",time_range)
-        title_respective = {"KG/HOUR":"","BAR":"Pressure","RPM":"Motor Speed","C":"Temperature","KG":"Quantity"}
-        datas.generate_chart(title_respective)
-
-        buff_charts =[]
-        trig = False
-        for crt_group in datas.charts:
-            if datatype in crt_group['title'].upper():
-                chart_group = crt_group['data']
-                minmax = crt_group['minmax']
-                trig = True
-                break
-
-        if trig == True:
-            for crt in chart_group:
-                page = MachineData.objects.get(Code = crt[2]).Page
-                buff_charts.append({"data":[crt],"minmax":minmax,"title":"Recorded " + page + " (" + crt[2] + ") "+ datatype +" Graph"})
-            charts = buff_charts
-        else:
-            charts = []
-    context = {'NoData':datas.no_data, 'charts':charts, 'x':datas.x}
-
-    return render(request, 'CRUD/plot.html', context)
-
-
-
-@login_required(login_url='login')
 def order_information(request,pk):
     user = request.user
     context = {}
@@ -417,90 +213,120 @@ def accountSettings(request):
     return render(request, 'accounts/account_settings.html', context)
 
 # ======================== IOT Core =========================================
-@csrf_exempt
-def iotcore(request):
-    if request.method == 'POST':
-        result = False
+def time_formatter(request):
+    # remove minute and second
+    try:
+        if "Time" in request.POST:
+            current_time = request.POST.get('current_time')
+        else:
+            current_time = time_now()
+        splitted_time = str(current_time).split(":")
+        minute = int(splitted_time[1])
+        if minute > 10:
+            minute = round(minute,-1)
+        current_time = splitted_time[0]+":"+str(minute)+":00"
+        current_time = datetime.datetime.strptime(current_time, '%Y-%m-%d %H:%M:%S')
+    except Exception as e:
+        current_time = time_now()
+    return current_time
+
+def security_check(request):
+    try:
         trig = False
-        try:
-            dev_str = request.GET['dev']
-            dev_obj = IOTDev.objects.get(Site=dev_str)
-            passport = dev_obj.Passport
-            csrf = dev_obj.CSRFTok
-            password = passport+":"+csrf
-            if 'password' in request.POST:
-                parsedJSON = request.POST
-            else:
-                for strJSON in request.POST:
-                    parsedJSON = json.loads(strJSON)
-                    break
-            upload_password = parsedJSON['password']
+        dev_str = request.GET['dev']
+        dev_obj = IOTDev.objects.get(Site=dev_str)
+        passport = dev_obj.Passport
+        csrf = dev_obj.CSRFTok
+        password = passport+":"+csrf
+        if 'password' in request.POST:
+            upload_password = request.POST.get('password')
             if password == upload_password:
                 trig = True
-        except Exception as e:
-            print(e)
-            return render(request, 'accounts/iotcore.html',{"result":result})
-        if trig == True:
-            try:
-                #print("trigger")
-                data_list = parsedJSON['data'].split("@@")
-                #print(data_list)
-                start_rec = False
-                for d in data_list[0:-1]:
-                    data = d.split("#")
-                    machine = MachineData.objects.get(Address=data[0],IP=data[2])
-                    value = round(float(data[1]),2)
-                    try:
-                        current_time = time_now()
-                        splitted_time = str(current_time).split(":")
-                        minute = round(int(splitted_time[1]),-1)
-                        current_time = splitted_time[0]+":"+str(minute)+":00"
-                        current_time = datetime.datetime.strptime(current_time, '%Y-%m-%d %H:%M:%S')
-                    except Exception as e:
-                        current_time = time_now()
+                current_time = time_formatter()
+                dev_obj.LastSeen = current_time
+                dev_obj.save()
+        return trig
+    except Exception as e:
+        return False
+
+@csrf_exempt
+def iotcore(request):
+    """ POST > Receive data from Device
+        request.GET = 
+        request.POST = {
+            'password':password,
+            'data':[{'IP':IP,
+                     'Address':Address,
+                     'Value':Value
+                     },{},...],
+            'Time':str(datetime) (**Optional/Only during reupload),
+            'message':message (**Optional/Only during error)
+        }
+        return = {'result':True/False}
+
+        GET > Receive address from Server
+        request.GET = {'Dev':Dev_str (IOT)}
+        return = {
+            'csrf':csrf,
+            'data':{
+                'ip1':[addr1,addr2,....],
+                'ip2':[addr3,addr4,....],...
+            }
+        }
+    """
+    if request.method == 'POST':
+        try:
+            if security_check(request) == True:
+                parsedJSON = dict(request.POST)
+                data_list = parsedJSON['data']
+                start_rec = False # For log data purpose
+                for data in data_list:
+                    machine = MachineData.objects.get(Address=data["Address"],IP=data["IP"])
+                    value = round(float(data["Value"]),2)
+                    current_time = time_formatter(request) # If there are "Time" in request.POST, it will be used
+
                     machine.LastEdit = current_time
                     machine.Value = value
                     machine.save()
-                    dev_obj.LastSeen = current_time
-                    dev_obj.save()
+
                     last_log = LogData.objects.latest('DateCreated')
                     if time_now() - last_log.DateCreated > datetime.timedelta(minutes=10) or start_rec == True:
                         log_obj = LogData(Value = value, Machine = machine, DateCreated = current_time)
                         log_obj.save()
                         start_rec = True
-
-                if 'message' in parsedJSON:
-                    msg = parsedJSON['message']
-                    if len(msg) > 5 and msg != 'None':
-                        msg_obj = Message(msg = msg)
-                        msg_obj.date_created = current_time
-                        msg_obj.save()
-
-                result = True
-            except Exception as e:
-                print(e)
-                return render(request, 'accounts/iotcore.html',{"result":result})
+                    
+                    # Log message if found message in parsed json
+                    if 'message' in parsedJSON:
+                        msg = parsedJSON['message']
+                        if len(msg) > 5 and msg != 'None':
+                            msg_obj = Message(msg = msg)
+                            msg_obj.date_created = current_time
+                            msg_obj.save()
+                return JsonResponse({"result":True})
+            else:
+                return JsonResponse({"result":False})
+        except Exception as e:
+            print(e)
+            return JsonResponse({"result":False})
         
     else:
-        result = False
+        csrf = False
+        addr_list = {}
         req = request.GET
         if "dev" in req:
             try:
-                result = randomString()
+                csrf = randomString()
                 dev_str = request.GET['dev']
                 dev_obj = IOTDev.objects.get(Site=dev_str)
-                dev_obj.CSRFTok = result
+                dev_obj.CSRFTok = csrf
                 dev_obj.save()
-                result += "#"
-                addr_list = []
+                
                 addr_objs = MachineData.objects.filter(Dev = dev_str)
                 for obj in addr_objs:
-                    result += obj.Address 
-                    result += ":" 
-                    result += obj.Line 
-                    result += ":" 
-                    result += obj.IP 
-                    result += "@"
+                    if obj.IP in addr_list:
+                        addr_list[obj.IP].append(obj.Address)
+                    else:
+                        addr_list[obj.IP] = [obj.Address]
             except Exception as e:
                 print(e)
-    return render(request, 'accounts/iotcore.html',{"result":result})
+        return JsonResponse({"csrf":csrf,"data":addr_list})

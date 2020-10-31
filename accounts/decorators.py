@@ -19,10 +19,6 @@ def allowed_users(allowed_roles=[]):
 				return view_func(request, *args, **kwargs)
 			if request.user.is_admin:
 				roles.append('admin')
-			if request.user.is_salesman:
-				roles.append('salesman')
-			if request.user.is_manager:
-				roles.append('manager')
 			if request.user.is_staff:
 				roles.append('staff')
 
@@ -37,11 +33,23 @@ def allowed_users(allowed_roles=[]):
 def admin_only(view_func):
 	def wrapper_function(request, *args, **kwargs):
 		group = None
-		if request.user.is_superuser or request.user.is_admin:# or request.user.is_manager or request.user.is_staff or request.user.is_salesman:
+		if request.user.is_staff or request.user.is_admin:# or request.user.is_manager or request.user.is_staff or request.user.is_salesman:
 			return view_func(request, *args, **kwargs)
 
 		else:
-			return redirect('user-page')
+			return redirect('mobile-home')
+
+
+	return wrapper_function
+
+def active_only(view_func):
+	def wrapper_function(request, *args, **kwargs):
+		group = None
+		if request.user.is_active:# or request.user.is_manager or request.user.is_staff or request.user.is_salesman:
+			return view_func(request, *args, **kwargs)
+
+		else:
+			return redirect('mobile-login')
 
 
 	return wrapper_function

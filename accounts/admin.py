@@ -19,20 +19,6 @@ class UserActionAdmin(admin.ModelAdmin):
     class Meta:
         model = UserAction
 
-class MachineAdmin(admin.ModelAdmin):
-    list_display = ["Code","Name","Line","Page","Parameter","Address","Value","Unit","LastEdit","Dev"]
-    list_filter = ["Line","Page","Unit","Dev","Parameter"]
-    search_fields = ["Line","Page","Code","Parameter","Address","Unit","LastEdit","Dev"]
-    class Meta:
-        model = MachineData
-
-class LogDataAdmin(admin.ModelAdmin):
-    list_display = ["id","DateCreated","Machine","Value"]
-    list_filter = ["Machine"]
-    search_fields = ["id","DateCreated","Machine","Value"]
-    class Meta:
-        model = LogData
-
 class MessageAdmin(admin.ModelAdmin):
     list_display = ["msg","date_created","is_seen"]
     list_filter = ["is_seen"]
@@ -40,10 +26,7 @@ class MessageAdmin(admin.ModelAdmin):
         model = Message
 
 admin.site.register(Account,AccountAdmin)
-admin.site.register(MachineData,MachineAdmin)
-admin.site.register(LogData,LogDataAdmin)
 admin.site.register(Message,MessageAdmin)
-admin.site.register(IOTDev)
 admin.site.register(UserAction,UserActionAdmin)
 
 

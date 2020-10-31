@@ -2,31 +2,39 @@ from django.urls import path
 
 from django.contrib.auth import views as auth_views
 
-from . import views
+from . import views, mobile
 
 
 
 urlpatterns = [
     # Login Related
-	path('register/', views.registerPage, name="register"),
-	path('login/', views.loginPage, name="login"),  
-	path('logout/', views.logoutUser, name="logout"),
+	path('travex-control-login/', views.loginPage, name="login"),  
+	path('travex-control-logout/', views.logoutUser, name="logout"),
 
     # Indexes / Dashboard
-    path('', views.home, name="home"),
+    path('travex-control/', views.home, name="home"),
     path('user/', views.userPage, name="user-page"),
     path('account/', views.accountSettings, name="account"),
 
     # Information Details
-    path('machine/', views.machine, name="machine"),
-    path('data-landing/<datatype>/<line>', views.data_landing, name="data-landing"),
-    path('data-plot/<datatype>/<daytype>', views.data_plot, name="data-plot"),
-    path('order_information/<int:pk>/', views.order_information, name="order_information"),
+    #path('machine/', views.machine, name="machine"),
+    #path('data-landing/<datatype>/<line>', views.data_landing, name="data-landing"),
+    #path('order_information/<int:pk>/', views.order_information, name="order_information"),
 
     
     # IOTCore
-    path('iot-core/', views.iotcore, name="iotcore"),
+    #path('iot-core/', views.iotcore, name="iotcore"),
 
+    # Mobile (User)
+    path('', mobile.home, name="mobile-index"),
+	path('mobile-login/', mobile.loginPage, name="mobile-login"),  
+	path('mobile-logout/', mobile.logoutUser, name="mobile-logout"),
+	path('mobile-register/', mobile.registerPage, name="mobile-register"),
+    path('mobile-home/', mobile.home, name="mobile-home"),
+    path('mobile-Portfolio/', mobile.Portfolio, name="mobile-Portfolio"),
+    path('mobile-About_Traves/', mobile.About_Traves, name="mobile-About_Traves"),
+    path('mobile-latest_news/', mobile.latest_news, name="mobile-latest_news"),
+    path('mobile-account/', mobile.accountSettings, name="mobile-account"),
 
     # signup related
     path('reset_password/',

@@ -3,22 +3,23 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>FGV</title>
+    <title>Premium Unitrade - Admin</title>
     <link rel="stylesheet" href="{% static '/css/login-style.css' %}">
     <link href="{% static 'images/favicon.png' %}" rel="shortcut icon">
   </head>
   <body>
     <div class="center">
-      <h3>FGV Group<br><br>Data Logging System </h3>
+      <img src="{% static 'images/logo.png' %}" width="320" height="100">
+      <h3><br><br>Monitoring Admin Panel </h3>
       <form method="POST" action="">
 	  	{% csrf_token %}
         <div class="txt_field">
-          <input type="text" name="username" placeholder="Username..." required>
+          <input type="text" name="username" placeholder="" required>
           <span></span>
           <label>Username</label>
         </div>
         <div class="txt_field">
-          <input type="password" name="password" placeholder="Password..." required>
+          <input type="password" name="password" placeholder="" required>
           <span></span>
           <label>Password</label>
         </div>
@@ -28,9 +29,6 @@
 			</a>
 		</div-->
         <input type="submit" value="Login">
-        <div class="signup_link">
-          Not a member? <a href="{% url 'register' %}">Signup</a>
-        </div>
       </form>
     </div>
 {% for message in messages %}

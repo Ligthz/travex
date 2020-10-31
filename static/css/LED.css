@@ -12,22 +12,22 @@
 }
 
 .led-box {
-  height: 30px;
-  width: 25%;
-  margin: 10px 0;
+  height: 120px;
+  width: 150px;
+  margin: 20px 0;
   float: left;
 }
 
 .led-box p {
-  font-size: 12px;
+  font-size: 14px;
   text-align: center;
-  margin: 1em;
 }
 
 .led-red {
-  margin: 0 auto;
-  width: 24px;
-  height: 24px;
+  margin: 10px;
+  margin-left:55px;
+  width: 34px;
+  height: 34px;
   background-color: #F00;
   border-radius: 50%;
   box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #441313 0 -1px 9px, rgba(255, 0, 0, 0.5) 0 2px 12px;
@@ -65,17 +65,18 @@
 }
 
 .led-yellow {
-  margin: 0 auto;
-  width: 24px;
-  height: 24px;
+    margin: 10px;
+    margin-left:55px;
+    width: 34px;
+    height: 34px;
   background-color: #FF0;
   border-radius: 50%;
   box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #808002 0 -1px 9px, #FF0 0 2px 12px;
-  -webkit-animation: blinkYellow 1s infinite;
-  -moz-animation: blinkYellow 1s infinite;
-  -ms-animation: blinkYellow 1s infinite;
-  -o-animation: blinkYellow 1s infinite;
-  animation: blinkYellow 1s infinite;
+  -webkit-animation: blinkYellow 0.75s infinite;
+  -moz-animation: blinkYellow 0.75s infinite;
+  -ms-animation: blinkYellow 0.75s infinite;
+  -o-animation: blinkYellow 0.75s infinite;
+  animation: blinkYellow 0.75s infinite;
 }
 
 @-webkit-keyframes blinkYellow {
@@ -105,19 +106,53 @@
 }
 
 .led-green {
-  margin: 0 auto;
-  width: 24px;
-  height: 24px;
+    margin: 10px;
+    margin-left:55px;
+    width: 34px;
+    height: 34px;
   background-color: #ABFF00;
   border-radius: 50%;
   box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #304701 0 -1px 9px, #89FF00 0 2px 12px;
+  -webkit-animation: blinkGreen 1s infinite;
+  -moz-animation: blinkGreen 1s infinite;
+  -ms-animation: blinkGreen 1s infinite;
+  -o-animation: blinkGreen 1s infinite;
+  animation: blinkGreen 1s infinite;
 }
 
-.led-blue {
-  margin: 0 auto;
-  width: 24px;
-  height: 24px;
-  background-color: #24E0FF;
+
+@-webkit-keyframes blinkGreen {
+    from { background-color: #ABFF00; }
+    50% { background-color: #aaff00be; box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #808002 0 -1px 9px, #FF0 0 2px 0; }
+    to { background-color: #ABFF00; }
+}
+@-moz-keyframes blinkGreen {
+    from { background-color: #ABFF00; }
+    50% { background-color: #aaff00be; box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #808002 0 -1px 9px, #FF0 0 2px 0; }
+    to { background-color: #ABFF00; }
+}
+@-ms-keyframes blinkGreen {
+    from { background-color: #ABFF00; }
+    50% { background-color: #aaff00be; box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #808002 0 -1px 9px, #FF0 0 2px 0; }
+    to { background-color: #ABFF00; }
+}
+@-o-keyframes blinkGreen {
+    from { background-color: #ABFF00; }
+    50% { background-color: #aaff00be; box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #808002 0 -1px 9px, #FF0 0 2px 0; }
+    to { background-color: #ABFF00; }
+}
+@keyframes blinkGreen {
+    from { background-color: #ABFF00; }
+    50% { background-color: #aaff00be; box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #808002 0 -1px 9px, #FF0 0 2px 0; }
+    to { background-color: #ABFF00; }
+}
+
+.led-off {
+    margin: 10px;
+    margin-left:55px;
+    width: 34px;
+    height: 34px;
+  background-color: #2c2c2c;
   border-radius: 50%;
-  box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #006 0 -1px 9px, #3F8CFF 0 2px 14px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #006 0 -1px 9px, #2c2c2c 0 2px 14px;
 }

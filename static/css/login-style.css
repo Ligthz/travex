@@ -2,7 +2,7 @@ body{
   margin: 0;
   padding: 0;
   font-family: montserrat;
-  background: linear-gradient(120deg,#2980b9, #8e44ad);
+  background: linear-gradient(120deg,#ffffff, #ffffff);
   height: 100vh;
   overflow: hidden;
 }
@@ -20,19 +20,25 @@ body{
   padding: 0 0 20px 0;
   border-bottom: 1px solid silver;
 }
+.center img{
+  text-align: center;
+  margin-left:40px;
+}
 .center h1{
   text-align: center;
   padding: 0 0 20px 0;
   border-bottom: 1px solid silver;
 }
 .center form{
-  padding: 0 40px;
+  padding: 0 20px;
   box-sizing: border-box;
 }
 form .txt_field{
   position: relative;
   border-bottom: 2px solid #adadad;
   margin: 30px 0;
+  width: 150%;
+  margin-left:-25%;
 }
 .txt_field input{
   width: 100%;

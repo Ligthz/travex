@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Login Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/CSS.css'%}">
+</head>
+<body>
+<section class="sign-in"> 
+    <div class="main-page">
+        <p>{{form.errors}}</p>
+        <div class="name">
+            <img class="logo2" src="{% static 'images/logo2.png' %}">
+            <!--h1>Travex Premium Trading</h1-->
+        </div>
+        <div class="form-regs">
+            <form method="POST" action="">
+            {% csrf_token %}
+                {{form.username}}
+                {{form.name}}
+                {{form.phone}}
+                {{form.password1}}
+                {{form.password2}}
+                <input class="s-btn" type="submit" value="Register Account">
+            </form>
+        </div>  
+        <div class="form-btns-reg">
+            <a class="new-btn" href="{% url 'mobile-login' %}">Back to login</a>
+        </div>  
+    </div>  
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" type="text/javascript"></script>
+
+
+</body>
+</html>

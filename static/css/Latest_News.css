@@ -1,0 +1,847 @@
+.mediaViewInfo {
+	--web-view-name: Latest News;
+	--web-view-id: Latest_News;
+	--web-scale-on-resize: true;
+	--web-enable-deep-linking: true;
+}
+:root {
+	--web-view-ids: Latest_News;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	border: none;
+}
+#Latest_News {
+	position: absolute;
+	width: 375px;
+	height: 812px;
+	background-color: rgba(48,26,159,1);
+	overflow: hidden;
+	--web-view-name: Latest News;
+	--web-view-id: Latest_News;
+	--web-scale-on-resize: true;
+	--web-enable-deep-linking: true;
+}
+@keyframes fadein {
+
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+
+}
+#top {
+	position: absolute;
+	width: 375px;
+	height: 80px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#iconsback-light {
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	left: 24px;
+	top: 56px;
+	overflow: visible;
+}
+#bg {
+	fill: transparent;
+}
+.bg {
+	position: absolute;
+	overflow: visible;
+	width: 24px;
+	height: 24px;
+	left: 0px;
+	top: 0px;
+}
+#icon {
+	fill: rgba(255,255,255,1);
+}
+.icon {
+	overflow: visible;
+	position: absolute;
+	width: 16px;
+	height: 13.51px;
+	left: 4px;
+	top: 5.231px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#icondfilter-light {
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	left: 327px;
+	top: 56px;
+	overflow: visible;
+}
+#bg_p {
+	fill: transparent;
+}
+.bg_p {
+	position: absolute;
+	overflow: visible;
+	width: 24px;
+	height: 24px;
+	left: 0px;
+	top: 0px;
+}
+#path {
+	fill: rgba(255,255,255,1);
+}
+.path {
+	overflow: visible;
+	position: absolute;
+	width: 18px;
+	height: 14px;
+	left: 3px;
+	top: 5px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#status_bardark {
+	position: absolute;
+	width: 375px;
+	height: 44px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#Background {
+	fill: transparent;
+}
+.Background {
+	overflow: visible;
+	position: absolute;
+	width: 375px;
+	height: 44px;
+	left: 0px;
+	top: 0px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Battery {
+	position: absolute;
+	width: 24.328px;
+	height: 11.333px;
+	left: 336px;
+	top: 17.333px;
+	overflow: visible;
+}
+#Border {
+	position: absolute;
+	width: 22px;
+	height: 11.333px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#Cap {
+	position: absolute;
+	width: 1.328px;
+	height: 4px;
+	left: 23px;
+	top: 3.667px;
+	overflow: visible;
+}
+#Capacity {
+	position: absolute;
+	width: 18px;
+	height: 7.333px;
+	left: 2px;
+	top: 2px;
+	overflow: visible;
+}
+#Wifi {
+	position: absolute;
+	width: 15.272px;
+	height: 10.966px;
+	left: 315.694px;
+	top: 17.331px;
+	overflow: visible;
+}
+#Wifi_y {
+	position: absolute;
+	width: 15.272px;
+	height: 10.966px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#Cellular_Connection {
+	position: absolute;
+	width: 17px;
+	height: 10.667px;
+	left: 293.667px;
+	top: 17.667px;
+	overflow: visible;
+}
+#Cellular_Connection_ {
+	position: absolute;
+	width: 17px;
+	height: 10.667px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#Bars_Time_Black {
+	position: absolute;
+	width: 54px;
+	height: 16px;
+	left: 20px;
+	top: 15px;
+	overflow: visible;
+}
+#Background_ {
+	fill: rgba(0,0,0,0);
+}
+.Background_ {
+	overflow: visible;
+	position: absolute;
+	width: 54px;
+	height: 16px;
+	left: 0px;
+	top: 0px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#_Time {
+	fill: rgba(255,255,255,1);
+}
+._Time {
+	overflow: visible;
+	position: absolute;
+	width: 27.451px;
+	height: 10.35px;
+	left: 12.823px;
+	top: 4.89px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#top_ {
+	position: absolute;
+	width: 375px;
+	height: 219px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#HeaderLight {
+	position: absolute;
+	width: 375px;
+	height: 219px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#bg_ {
+	fill: rgba(248,248,248,1);
+}
+.bg_ {
+	overflow: visible;
+	position: absolute;
+	width: 375px;
+	height: 219px;
+	left: 0px;
+	top: 0px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#tab3_optionsdark {
+	position: absolute;
+	width: 362px;
+	height: 48px;
+	left: 0px;
+	top: 156px;
+	overflow: visible;
+}
+#bg_ba {
+	opacity: 0;
+	fill: rgba(255,255,255,1);
+}
+.bg_ba {
+	position: absolute;
+	overflow: visible;
+	width: 362px;
+	height: 48px;
+	left: 0px;
+	top: 0px;
+}
+#Transaction {
+	opacity: 0.6;
+	left: 18px;
+	top: 17px;
+	position: absolute;
+	overflow: visible;
+	width: 75px;
+	white-space: nowrap;
+	--web-animation: fadein 0.3s ease-out;
+	--web-action-type: page;
+	--web-action-target: Dashboard.html;
+	cursor: pointer;
+	line-height: 26px;
+	margin-top: -7px;
+	text-align: center;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 12px;
+	color: rgba(0,0,0,1);
+	letter-spacing: 0.04px;
+}
+#About_Traves {
+	opacity: 0.6;
+	left: 277px;
+	top: 17px;
+	position: absolute;
+	overflow: visible;
+	width: 83px;
+	white-space: nowrap;
+	--web-animation: fadein 0.3s ease-out;
+	--web-action-type: page;
+	--web-action-target: About.html;
+	cursor: pointer;
+	line-height: 26px;
+	margin-top: -7px;
+	text-align: center;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 12px;
+	color: rgba(0,0,0,1);
+	letter-spacing: 0.04px;
+}
+#Button {
+	fill: rgba(255,131,79,1);
+}
+.Button {
+	overflow: visible;
+	position: absolute;
+	width: 89.014px;
+	height: 32px;
+	left: 103px;
+	top: 8px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Latest_News_bc {
+	left: 110px;
+	top: 17px;
+	position: absolute;
+	overflow: visible;
+	width: 77px;
+	white-space: nowrap;
+	line-height: 26px;
+	margin-top: -7px;
+	text-align: center;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 12px;
+	color: rgba(255,255,255,1);
+	letter-spacing: 0.04px;
+}
+#Portfolio {
+	opacity: 0.6;
+	left: 205px;
+	top: 17px;
+	position: absolute;
+	overflow: visible;
+	width: 55px;
+	white-space: nowrap;
+	--web-animation: fadein 0.3s ease-out;
+	--web-action-type: page;
+	--web-action-target: Portfolio.html;
+	cursor: pointer;
+	line-height: 26px;
+	margin-top: -7px;
+	text-align: center;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 12px;
+	color: rgba(0,0,0,1);
+	letter-spacing: 0.04px;
+}
+#logo2 {
+	filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.161));
+	position: absolute;
+	width: 261px;
+	height: 82px;
+	left: 57px;
+	top: 69px;
+	overflow: visible;
+}
+#content {
+	position: absolute;
+	width: 343px;
+	height: 772px;
+	left: 16px;
+	top: 243px;
+	overflow: visible;
+}
+#post-image {
+	position: absolute;
+	width: 343px;
+	height: 271px;
+	left: 0px;
+	top: 250px;
+	overflow: visible;
+}
+#form {
+	fill: rgba(255,255,255,1);
+}
+.form {
+	position: absolute;
+	overflow: visible;
+	width: 343px;
+	height: 271px;
+	left: 0px;
+	top: 0px;
+}
+#content_bi {
+	position: absolute;
+	width: 279px;
+	height: 190px;
+	left: 32px;
+	top: 27px;
+	overflow: visible;
+}
+#iconschevron {
+	opacity: 0.563;
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	left: 255px;
+	top: 0px;
+	overflow: visible;
+}
+#bg_bk {
+	fill: transparent;
+}
+.bg_bk {
+	position: absolute;
+	overflow: visible;
+	width: 24px;
+	height: 24px;
+	left: 0px;
+	top: 0px;
+}
+#line {
+	fill: rgba(120,132,158,1);
+}
+.line {
+	width: 8px;
+	height: 2px;
+	position: absolute;
+	overflow: visible;
+	transform: translate(0px, 0px) matrix(1,0,0,1,6.535,11) rotate(45deg);
+	transform-origin: center;
+}
+#line_bm {
+	fill: rgba(120,132,158,1);
+}
+.line_bm {
+	width: 8px;
+	height: 2px;
+	position: absolute;
+	overflow: visible;
+	transform: translate(0px, 0px) matrix(1,0,0,1,10.8355,11) rotate(-45deg);
+	transform-origin: center;
+}
+#Believe_you_can_and_youre_half {
+	left: 0px;
+	top: 54px;
+	position: absolute;
+	overflow: visible;
+	width: 269px;
+	white-space: nowrap;
+	line-height: 22px;
+	margin-top: -4.5px;
+	text-align: left;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 13px;
+	color: rgba(129,120,137,1);
+}
+#picture {
+	position: absolute;
+	width: 279px;
+	height: 104px;
+	left: 0px;
+	top: 86px;
+	overflow: visible;
+}
+#author {
+	position: absolute;
+	width: 203px;
+	height: 36px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#Jonathan_Lecluze {
+	left: 56px;
+	top: 1px;
+	position: absolute;
+	overflow: visible;
+	width: 148px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 16px;
+	color: rgba(36,19,50,1);
+}
+#ID8_Nov {
+	opacity: 0.56;
+	left: 56px;
+	top: 21px;
+	position: absolute;
+	overflow: visible;
+	width: 35px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 12px;
+	color: rgba(53,38,65,1);
+}
+#avatar {
+	position: absolute;
+	width: 36px;
+	height: 36px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#post {
+	position: absolute;
+	width: 343px;
+	height: 234px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#bg_bu {
+	fill: rgba(255,255,255,1);
+}
+.bg_bu {
+	position: absolute;
+	overflow: visible;
+	width: 343px;
+	height: 234px;
+	left: 0px;
+	top: 0px;
+}
+#content_bv {
+	position: absolute;
+	width: 279px;
+	height: 175px;
+	left: 32px;
+	top: 32px;
+	overflow: visible;
+}
+#Believe_in_yourself_take_on_yo {
+	left: 0px;
+	top: 55px;
+	position: absolute;
+	overflow: visible;
+	width: 280px;
+	height: 120px;
+	line-height: 22px;
+	margin-top: -4.5px;
+	text-align: left;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 13px;
+	color: rgba(129,120,137,1);
+}
+#author_bx {
+	position: absolute;
+	width: 186px;
+	height: 36px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#Jerome_Gaveau {
+	left: 56px;
+	top: 1px;
+	position: absolute;
+	overflow: visible;
+	width: 131px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 16px;
+	color: rgba(36,19,50,1);
+}
+#ID8_Nov_bz {
+	opacity: 0.56;
+	left: 56px;
+	top: 21px;
+	position: absolute;
+	overflow: visible;
+	width: 35px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 12px;
+	color: rgba(53,38,65,1);
+}
+#avatar_b {
+	position: absolute;
+	width: 36px;
+	height: 36px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#iconschevron_b {
+	opacity: 0.563;
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	left: 255px;
+	top: 0px;
+	overflow: visible;
+}
+#bg_b {
+	fill: transparent;
+}
+.bg_b {
+	position: absolute;
+	overflow: visible;
+	width: 24px;
+	height: 24px;
+	left: 0px;
+	top: 0px;
+}
+#line_b {
+	fill: rgba(120,132,158,1);
+}
+.line_b {
+	width: 8px;
+	height: 2px;
+	position: absolute;
+	overflow: visible;
+	transform: translate(0px, 0px) matrix(1,0,0,1,6.535,11) rotate(45deg);
+	transform-origin: center;
+}
+#line_ca {
+	fill: rgba(120,132,158,1);
+}
+.line_ca {
+	width: 8px;
+	height: 2px;
+	position: absolute;
+	overflow: visible;
+	transform: translate(0px, 0px) matrix(1,0,0,1,10.8355,11) rotate(-45deg);
+	transform-origin: center;
+}
+#divider {
+	opacity: 0.501;
+	fill: rgba(229,229,229,1);
+}
+.divider {
+	display: none;
+	position: absolute;
+	overflow: visible;
+	width: 281px;
+	height: 1px;
+	left: 0px;
+	top: 153px;
+}
+#post_b {
+	position: absolute;
+	width: 343px;
+	height: 234px;
+	left: 0px;
+	top: 538px;
+	overflow: visible;
+}
+#bg_ca {
+	fill: rgba(255,255,255,1);
+}
+.bg_ca {
+	overflow: visible;
+	position: absolute;
+	width: 343px;
+	height: 234px;
+	left: 0px;
+	top: 0px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#content_b {
+	position: absolute;
+	width: 279px;
+	height: 141px;
+	left: 32px;
+	top: 32px;
+	overflow: visible;
+}
+#Believe_in_yourself_take_on_yo_b {
+	left: 0px;
+	top: 55px;
+	position: absolute;
+	overflow: visible;
+	width: 280px;
+	height: 86px;
+	line-height: 22px;
+	margin-top: -4.5px;
+	text-align: left;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 13px;
+	color: rgba(129,120,137,1);
+}
+#author_ca {
+	position: absolute;
+	width: 196px;
+	height: 36px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#Maxime_Barbosa {
+	left: 56px;
+	top: 1px;
+	position: absolute;
+	overflow: visible;
+	width: 141px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 16px;
+	color: rgba(36,19,50,1);
+}
+#ID8_Nov_cc {
+	opacity: 0.56;
+	left: 56px;
+	top: 21px;
+	position: absolute;
+	overflow: visible;
+	width: 35px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 12px;
+	color: rgba(53,38,65,1);
+}
+#avatar_cd {
+	position: absolute;
+	width: 36px;
+	height: 36px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#iconschevron_ce {
+	opacity: 0.563;
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	left: 255px;
+	top: 0px;
+	overflow: visible;
+}
+#bg_cf {
+	fill: transparent;
+}
+.bg_cf {
+	position: absolute;
+	overflow: visible;
+	width: 24px;
+	height: 24px;
+	left: 0px;
+	top: 0px;
+}
+#line_cg {
+	fill: rgba(120,132,158,1);
+}
+.line_cg {
+	width: 8px;
+	height: 2px;
+	position: absolute;
+	overflow: visible;
+	transform: translate(0px, 0px) matrix(1,0,0,1,6.535,11) rotate(45deg);
+	transform-origin: center;
+}
+#line_ch {
+	fill: rgba(120,132,158,1);
+}
+.line_ch {
+	width: 8px;
+	height: 2px;
+	position: absolute;
+	overflow: visible;
+	transform: translate(0px, 0px) matrix(1,0,0,1,10.8355,11) rotate(-45deg);
+	transform-origin: center;
+}
+#divider_ci {
+	opacity: 0.501;
+	fill: rgba(229,229,229,1);
+}
+.divider_ci {
+	display: none;
+	position: absolute;
+	overflow: visible;
+	width: 281px;
+	height: 1px;
+	left: 0px;
+	top: 153px;
+}
+#Group_1786 {
+	position: absolute;
+	width: 81px;
+	height: 32px;
+	left: 281px;
+	top: 17px;
+	overflow: visible;
+	--web-animation: fadein 0.3s ease-out;
+	--web-action-type: page;
+	--web-action-target: Login.html;
+	cursor: pointer;
+}
+#Button_ck {
+	fill: rgba(255,79,79,1);
+}
+.Button_ck {
+	position: absolute;
+	overflow: visible;
+	width: 81px;
+	height: 32px;
+	left: 0px;
+	top: 0px;
+}
+#Logout {
+	left: 19px;
+	top: 9px;
+	position: absolute;
+	overflow: visible;
+	width: 45px;
+	white-space: nowrap;
+	line-height: 26px;
+	margin-top: -7px;
+	text-align: center;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 12px;
+	color: rgba(255,255,255,1);
+	letter-spacing: 0.04px;
+}
