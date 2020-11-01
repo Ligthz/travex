@@ -171,7 +171,7 @@ box-shadow:
 .name{
  position: absolute;
  left: 50%;
- top: 25%;
+ top: 35%;
  transform: translate(-50%,-50%);
  text-align: center;
  font-family: 'Poppins', sans-serif;
