@@ -15,7 +15,6 @@ from django.utils import timezone
 from .models import *
 from .forms import *
 from .decorators import unauthenticated_user, allowed_users, admin_only, active_only
-from crm1.settings import ChatBot
 
 import random
 import string

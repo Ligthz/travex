@@ -14,6 +14,8 @@
             {% if NoData == True %}
                 <h3> No data recorded during these period. </h3>
             {% else %}
+            <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
@@ -42,6 +44,7 @@
                     </tbody>
                 </table>
             </div>
+            </form>
             {% endif %}
         </div>
     </div>

@@ -8,12 +8,12 @@ from . import views, mobile
 
 urlpatterns = [
     # Login Related
-	path('travex-control-login/', views.loginPage, name="login"),  
-	path('travex-control-logout/', views.logoutUser, name="logout"),
+	path('premium-control-login/', views.loginPage, name="login"),  
+	path('premium-control-logout/', views.logoutUser, name="logout"),
 
     # Indexes / Dashboard
-    path('travex-control/', views.home, name="control-home"),
-    path('travex-user-data/', views.data_landing, name="control-user"),
+    path('premium-control/', views.home, name="control-home"),
+    path('premium-user-data/', views.data_landing, name="control-user"),
     path('user/', views.userPage, name="user-page"),
     path('account/', views.accountSettings, name="account"),
 
@@ -53,6 +53,8 @@ urlpatterns = [
 
 
 ]
+
+handler404 = 'accounts.views.error_404_view'
 
 '''
 1 - Submit email form                         //PasswordResetView.as_view()

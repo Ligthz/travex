@@ -1,0 +1,591 @@
+.mediaViewInfo {
+	--web-view-name: About;
+	--web-view-id: About;
+	--web-scale-on-resize: true;
+	--web-enable-deep-linking: true;
+}
+:root {
+	--web-view-ids: About;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	border: none;
+}
+#About {
+	position: absolute;
+	width: 100%;
+	height: 812px;
+	background-color: rgba(36,19,50,1);
+	overflow: hidden;
+	--web-view-name: About;
+	--web-view-id: About;
+	--web-scale-on-resize: true;
+	--web-enable-deep-linking: true;
+}
+@keyframes fadein {
+
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+
+}
+#top {
+	position: absolute;
+	width: 375px;
+	height: 80px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#iconsback-light {
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	left: 24px;
+	top: 56px;
+	overflow: visible;
+}
+#bg {
+	fill: transparent;
+}
+.bg {
+	position: absolute;
+	overflow: visible;
+	width: 24px;
+	height: 24px;
+	left: 0px;
+	top: 0px;
+}
+#icon {
+	fill: rgba(255,255,255,1);
+}
+.icon {
+	overflow: visible;
+	position: absolute;
+	width: 16px;
+	height: 13.51px;
+	left: 4px;
+	top: 5.231px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#icondfilter-light {
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	left: 327px;
+	top: 56px;
+	overflow: visible;
+}
+#bg_p {
+	fill: transparent;
+}
+.bg_p {
+	position: absolute;
+	overflow: visible;
+	width: 24px;
+	height: 24px;
+	left: 0px;
+	top: 0px;
+}
+#path {
+	fill: rgba(255,255,255,1);
+}
+.path {
+	overflow: visible;
+	position: absolute;
+	width: 18px;
+	height: 14px;
+	left: 3px;
+	top: 5px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#status_bardark {
+	position: absolute;
+	width: 375px;
+	height: 44px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#Background {
+	fill: transparent;
+}
+.Background {
+	overflow: visible;
+	position: absolute;
+	width: 375px;
+	height: 44px;
+	left: 0px;
+	top: 0px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Battery {
+	position: absolute;
+	width: 24.328px;
+	height: 11.333px;
+	left: 336px;
+	top: 17.333px;
+	overflow: visible;
+}
+#Border {
+	position: absolute;
+	width: 22px;
+	height: 11.333px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#Cap {
+	position: absolute;
+	width: 1.328px;
+	height: 4px;
+	left: 23px;
+	top: 3.667px;
+	overflow: visible;
+}
+#Capacity {
+	position: absolute;
+	width: 18px;
+	height: 7.333px;
+	left: 2px;
+	top: 2px;
+	overflow: visible;
+}
+#Wifi {
+	position: absolute;
+	width: 15.272px;
+	height: 10.966px;
+	left: 315.694px;
+	top: 17.331px;
+	overflow: visible;
+}
+#Wifi_y {
+	position: absolute;
+	width: 15.272px;
+	height: 10.966px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#Cellular_Connection {
+	position: absolute;
+	width: 17px;
+	height: 10.667px;
+	left: 293.667px;
+	top: 17.667px;
+	overflow: visible;
+}
+#Cellular_Connection_ {
+	position: absolute;
+	width: 17px;
+	height: 10.667px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#Bars_Time_Black {
+	position: absolute;
+	width: 54px;
+	height: 16px;
+	left: 20px;
+	top: 15px;
+	overflow: visible;
+}
+#Background_ {
+	fill: rgba(0,0,0,0);
+}
+.Background_ {
+	overflow: visible;
+	position: absolute;
+	width: 54px;
+	height: 16px;
+	left: 0px;
+	top: 0px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#_Time {
+	fill: rgba(255,255,255,1);
+}
+._Time {
+	overflow: visible;
+	position: absolute;
+	width: 27.451px;
+	height: 10.35px;
+	left: 12.823px;
+	top: 4.89px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#top_ {
+	position: absolute;
+	width: 375px;
+	height: 219px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#HeaderLight {
+	position: absolute;
+	width: 375px;
+	height: 219px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#bg_ {
+	fill: rgba(248,248,248,1);
+}
+.bg_ {
+	overflow: visible;
+	position: absolute;
+	width: 375px;
+	height: 219px;
+	left: 0px;
+	top: 0px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#tab3_optionsdark {
+	position: absolute;
+	width: 362.092px;
+	height: 48px;
+	left: 6px;
+	top: 157px;
+	overflow: visible;
+}
+#bg_ba {
+	opacity: 0;
+	fill: rgba(255,255,255,1);
+}
+.bg_ba {
+	position: absolute;
+	overflow: visible;
+	width: 362px;
+	height: 48px;
+	left: 0px;
+	top: 0px;
+}
+#Transaction {
+	opacity: 0.6;
+	left: 18px;
+	top: 17px;
+	position: absolute;
+	overflow: visible;
+	width: 75px;
+	white-space: nowrap;
+	--web-animation: fadein 0.3s ease-out;
+	--web-action-type: page;
+	--web-action-target: Dashboard.html;
+	cursor: pointer;
+	line-height: 26px;
+	margin-top: -7px;
+	text-align: center;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 12px;
+	color: rgba(0,0,0,1);
+	letter-spacing: 0.04px;
+}
+#Latest_News {
+	opacity: 0.6;
+	left: 107px;
+	top: 17px;
+	position: absolute;
+	overflow: visible;
+	width: 77px;
+	white-space: nowrap;
+	--web-animation: fadein 0.3s ease-out;
+	--web-action-type: page;
+	--web-action-target: Latest_News.html;
+	cursor: pointer;
+	line-height: 26px;
+	margin-top: -7px;
+	text-align: center;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 12px;
+	color: rgba(0,0,0,1);
+	letter-spacing: 0.04px;
+}
+#Group_35 {
+	position: absolute;
+	width: 94.092px;
+	height: 32px;
+	left: 268px;
+	top: 8px;
+	overflow: visible;
+}
+#Button {
+	fill: rgba(255,131,79,1);
+}
+.Button {
+	overflow: visible;
+	position: absolute;
+	width: 94.092px;
+	height: 32px;
+	left: 0px;
+	top: 0px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#About_Traves {
+	left: 6px;
+	top: 9px;
+	position: absolute;
+	overflow: visible;
+	width: 83px;
+	white-space: nowrap;
+	line-height: 26px;
+	margin-top: -7px;
+	text-align: center;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 12px;
+	color: rgba(255,255,255,1);
+	letter-spacing: 0.04px;
+}
+#Portfolio {
+	opacity: 0.6;
+	left: 199px;
+	top: 17px;
+	position: absolute;
+	overflow: visible;
+	width: 55px;
+	white-space: nowrap;
+	--web-animation: fadein 0.3s ease-out;
+	--web-action-type: page;
+	--web-action-target: Portfolio.html;
+	cursor: pointer;
+	line-height: 26px;
+	margin-top: -7px;
+	text-align: center;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 12px;
+	color: rgba(0,0,0,1);
+	letter-spacing: 0.04px;
+}
+#logo2 {
+	filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.161));
+	position: absolute;
+	width: 261px;
+	height: 82px;
+	left: 57px;
+	top: 69px;
+	overflow: visible;
+}
+#Group_1786 {
+	position: absolute;
+	width: 81px;
+	height: 32px;
+	left: 281px;
+	top: 17px;
+	overflow: visible;
+	--web-animation: fadein 0.3s ease-out;
+	--web-action-type: page;
+	--web-action-target: Login.html;
+	cursor: pointer;
+}
+#Button_bh {
+	fill: rgba(255,79,79,1);
+}
+.Button_bh {
+	position: absolute;
+	overflow: visible;
+	width: 81px;
+	height: 32px;
+	left: 0px;
+	top: 0px;
+}
+#Logout {
+	left: 19px;
+	top: 9px;
+	position: absolute;
+	overflow: visible;
+	width: 45px;
+	white-space: nowrap;
+	line-height: 26px;
+	margin-top: -7px;
+	text-align: center;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 12px;
+	color: rgba(255,255,255,1);
+	letter-spacing: 0.04px;
+}
+#Profile {
+	position: absolute;
+	width: 375px;
+	height: 552px;
+	left: 0px;
+	top: 260px;
+	overflow: auto;
+}
+#cards {
+	position: absolute;
+	width: 375px;
+	height: 552px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#card {
+	position: absolute;
+	width: 375px;
+	height: 392px;
+	left: 0px;
+	top: 160px;
+	overflow: visible;
+}
+#bg_bm {
+	fill: rgba(36,19,50,1);
+	stroke: rgba(66,48,80,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.bg_bm {
+	position: absolute;
+	overflow: visible;
+	width: 375px;
+	height: 392px;
+	left: 0px;
+	top: 0px;
+}
+#field {
+	position: absolute;
+	width: 279px;
+	height: 102px;
+	left: 48px;
+	top: 174px;
+	overflow: visible;
+}
+#Timeline {
+	left: 0px;
+	top: 0px;
+	position: absolute;
+	overflow: visible;
+	width: 73px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 16px;
+	color: rgba(255,255,255,1);
+}
+#You_may_need_to_create_an_acco {
+	left: 0px;
+	top: 28px;
+	position: absolute;
+	overflow: hidden;
+	width: 280px;
+	height: 74px;
+	line-height: 18px;
+	margin-top: -3px;
+	text-align: left;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 12px;
+	color: rgba(153,143,162,1);
+	letter-spacing: -0.16071430206298828px;
+}
+#About_Us {
+	left: 48px;
+	top: 174px;
+	position: absolute;
+	overflow: visible;
+	width: 78px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 16px;
+	color: rgba(255,255,255,1);
+}
+#When_I_was_5_years_old_my_moth {
+	left: 48px;
+	top: 202px;
+	position: absolute;
+	overflow: visible;
+	width: 280px;
+	height: 74px;
+	line-height: 18px;
+	margin-top: -3px;
+	text-align: left;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 12px;
+	color: rgba(153,143,162,1);
+	letter-spacing: -0.16071430206298828px;
+}
+#text {
+	position: absolute;
+	width: 327px;
+	height: 146px;
+	left: 24px;
+	top: 0px;
+	overflow: visible;
+}
+#If_youre_offered_a_seat_on_a_r {
+	left: 0px;
+	top: 95px;
+	position: absolute;
+	overflow: visible;
+	width: 328px;
+	height: 51px;
+	line-height: 20px;
+	margin-top: -3px;
+	text-align: center;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	color: rgba(255,255,255,1);
+}
+#Welcome_ {
+	left: 32px;
+	top: 22px;
+	position: absolute;
+	overflow: visible;
+	width: 264px;
+	height: 44px;
+	line-height: 40px;
+	margin-top: -4px;
+	text-align: center;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 32px;
+	color: rgba(255,255,255,1);
+	letter-spacing: -0.16071430206298828px;
+}
+#LIFESTYLE {
+	left: 111px;
+	top: 0px;
+	position: absolute;
+	overflow: visible;
+	width: 107px;
+	white-space: nowrap;
+	line-height: 20px;
+	margin-top: -4.5px;
+	text-align: center;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 11px;
+	color: rgba(163,169,175,1);
+	letter-spacing: 0.9090908813476563px;
+}

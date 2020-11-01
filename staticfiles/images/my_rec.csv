@@ -1,0 +1,12 @@
+General Trip Signals#Chiller,Compressor,Cooling Towers Chiller/Compressors,Dehumidifier,Dryer,Gas Leakage,Gen-set,Inverters,Pump House,Pump Room,Server,Sewer,Transformers Operation,Transformer Room,Vacuum Level,Water Storage Tanks,Water Treatment Facilities
+SB Section#SB1,SB2,SB3,SB4,SB5
+Switchroom#Consumer's H.T.Switchroom,Consumer's LV.Switchroom,H.T.Switchroom
+Service & Attendent#Attendance Panel,Service Provider
+Cooling Tower#Air Compressor Cooling Tower No.4 Pump4,Air Compressor Cooling Tower Pump1,Air Compressor Cooling Tower Pump2,Air Compressor Cooling Tower Pump3,Chiller Cooling Tower No.1 Pump1,Chiller Cooling Tower No.2 Pump2,Chiller Cooling Tower No.2 Standby Pump,Chiller Cooling Tower No.3 Pump3,Chiller Cooling Tower No.3/4 Pump3/4,Chiller Cooling Tower No.5 Pump5
+Water Tater#Cooling Tower Water Tater,Hydrant Water Tater,Sprinkler Water Tater
+UMW & ZR#No.1 UMW TA 2000,No.2 UMW TA 2000,No.3 UMW TA 2000,No.4 UMW TA 2000,No.5 UMW TA 2000,No.6 UMW TA 2000,No.7 UMW TA 2000,No.10 ZR 200,No.8 ZR 3,No.9 ZR 4
+Chiller#Chiller 1,Chiller 2,Chiller 3,Chiller 4,Chiller 5
+Zero Purge#Zero Purge No A,Zero Purge No B
+Inverters#Inverters 1,Inverters 2,Inverters 3,Inverters 4,Inverters 5,Inverters 6
+P Section#P1,P2,P3,P4,P5,P6
+S Section#S1,S2,S3,S4,S5

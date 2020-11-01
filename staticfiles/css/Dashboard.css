@@ -1,0 +1,890 @@
+.mediaViewInfo {
+	--web-view-name: Dashboard;
+	--web-view-id: Dashboard;
+	--web-scale-on-resize: true;
+	--web-enable-deep-linking: true;
+}
+:root {
+	--web-view-ids: Dashboard;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	border: none;
+}
+#Dashboard {
+	position: absolute;
+	width: 100%;
+    height: 100%;
+	background-color: rgba(97,79,255,0.671);
+	overflow: hidden;
+	--web-view-name: Dashboard;
+	--web-view-id: Dashboard;
+	--web-scale-on-resize: true;
+	--web-enable-deep-linking: true;
+}
+@keyframes fadein {
+
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+
+}
+#bottom {
+	position: absolute;
+	width: 375px;
+	height: 24px;
+	left: 0px;
+	top: 788px;
+	overflow: visible;
+}
+#home_indicatorlight {
+	position: absolute;
+	width: 375px;
+	height: 24px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#bg {
+	fill: transparent;
+}
+.bg {
+	position: absolute;
+	overflow: visible;
+	width: 375px;
+	height: 24px;
+	left: 0px;
+	top: 0px;
+}
+#indicator {
+	opacity: 0.5;
+	fill: rgba(85,88,105,1);
+}
+.indicator {
+	position: absolute;
+	overflow: visible;
+	width: 134px;
+	height: 3px;
+	left: 121px;
+	top: 12px;
+}
+#top {
+	position: absolute;
+	width: 375px;
+	height: 80px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#iconsback-light {
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	left: 24px;
+	top: 56px;
+	overflow: visible;
+}
+#bg_q {
+	fill: transparent;
+}
+.bg_q {
+	position: absolute;
+	overflow: visible;
+	width: 24px;
+	height: 24px;
+	left: 0px;
+	top: 0px;
+}
+#icon {
+	fill: rgba(255,255,255,1);
+}
+.icon {
+	overflow: visible;
+	position: absolute;
+	width: 16px;
+	height: 13.51px;
+	left: 4px;
+	top: 5.231px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#icondfilter-light {
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	left: 327px;
+	top: 56px;
+	overflow: visible;
+}
+#bg_t {
+	fill: transparent;
+}
+.bg_t {
+	position: absolute;
+	overflow: visible;
+	width: 24px;
+	height: 24px;
+	left: 0px;
+	top: 0px;
+}
+#path {
+	fill: rgba(255,255,255,1);
+}
+.path {
+	overflow: visible;
+	position: absolute;
+	width: 18px;
+	height: 14px;
+	left: 3px;
+	top: 5px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#status_bardark {
+	position: absolute;
+	width: 375px;
+	height: 44px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#Background {
+	fill: transparent;
+}
+.Background {
+	overflow: visible;
+	position: absolute;
+	width: 375px;
+	height: 44px;
+	left: 0px;
+	top: 0px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Battery {
+	position: absolute;
+	width: 24.328px;
+	height: 11.333px;
+	left: 336px;
+	top: 17.333px;
+	overflow: visible;
+}
+#Border {
+	position: absolute;
+	width: 22px;
+	height: 11.333px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#Cap {
+	position: absolute;
+	width: 1.328px;
+	height: 4px;
+	left: 23px;
+	top: 3.667px;
+	overflow: visible;
+}
+#Capacity {
+	position: absolute;
+	width: 18px;
+	height: 7.333px;
+	left: 2px;
+	top: 2px;
+	overflow: visible;
+}
+#Wifi {
+	position: absolute;
+	width: 15.272px;
+	height: 10.966px;
+	left: 315.694px;
+	top: 17.331px;
+	overflow: visible;
+}
+#Wifi_ {
+	position: absolute;
+	width: 15.272px;
+	height: 10.966px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#Cellular_Connection {
+	position: absolute;
+	width: 17px;
+	height: 10.667px;
+	left: 293.667px;
+	top: 17.667px;
+	overflow: visible;
+}
+#Cellular_Connection_ {
+	position: absolute;
+	width: 17px;
+	height: 10.667px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#Bars_Time_Black {
+	position: absolute;
+	width: 54px;
+	height: 16px;
+	left: 20px;
+	top: 15px;
+	overflow: visible;
+}
+#Background_ {
+	fill: rgba(0,0,0,0);
+}
+.Background_ {
+	overflow: visible;
+	position: absolute;
+	width: 54px;
+	height: 16px;
+	left: 0px;
+	top: 0px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#_Time {
+	fill: rgba(255,255,255,1);
+}
+._Time {
+	overflow: visible;
+	position: absolute;
+	width: 27.451px;
+	height: 10.35px;
+	left: 12.823px;
+	top: 4.89px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#top_ {
+	position: absolute;
+	width: 375px;
+	height: 219px;
+	left: 0px;
+	top: -1px;
+	overflow: visible;
+}
+#HeaderLight {
+	position: absolute;
+	width: 375px;
+	height: 219px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#bg_ba {
+	fill: rgba(248,248,248,1);
+}
+.bg_ba {
+	overflow: visible;
+	position: absolute;
+	width: 375px;
+	height: 219px;
+	left: 0px;
+	top: 0px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#tab3_optionsdark {
+	position: absolute;
+	width: 362px;
+	height: 186px;
+	left: 0px;
+	top: 18px;
+	overflow: visible;
+}
+#bg_bc {
+	opacity: 0;
+	fill: rgba(255,255,255,1);
+}
+.bg_bc {
+	position: absolute;
+	overflow: visible;
+	width: 362px;
+	height: 48px;
+	left: 0px;
+	top: 138px;
+}
+#Latest_News {
+	opacity: 0.6;
+	left: 121px;
+	top: 155px;
+	position: absolute;
+	overflow: visible;
+	width: 77px;
+	white-space: nowrap;
+	--web-animation: fadein 0.3s ease-out;
+	--web-action-type: page;
+	--web-action-target: Latest_News.html;
+	cursor: pointer;
+	line-height: 26px;
+	margin-top: -7px;
+	text-align: center;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 12px;
+	color: rgba(0,0,0,1);
+	letter-spacing: 0.04px;
+}
+#About_Traves {
+	opacity: 0.6;
+	left: 277px;
+	top: 155px;
+	position: absolute;
+	overflow: visible;
+	width: 83px;
+	white-space: nowrap;
+	--web-animation: fadein 0.3s ease-out;
+	--web-action-type: page;
+	--web-action-target: About.html;
+	cursor: pointer;
+	line-height: 26px;
+	margin-top: -7px;
+	text-align: center;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 12px;
+	color: rgba(0,0,0,1);
+	letter-spacing: 0.04px;
+}
+#Group_1783 {
+	position: absolute;
+	width: 81px;
+	height: 32px;
+	left: 28px;
+	top: 146px;
+	overflow: visible;
+}
+#Button {
+	fill: rgba(255,131,79,1);
+}
+.Button {
+	position: absolute;
+	overflow: visible;
+	width: 81px;
+	height: 32px;
+	left: 0px;
+	top: 0px;
+}
+#Transaction_ {
+	left: 4px;
+	top: 9px;
+	position: absolute;
+	overflow: visible;
+	width: 77px;
+	white-space: nowrap;
+	line-height: 26px;
+	margin-top: -7px;
+	text-align: center;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 12px;
+	color: rgba(255,255,255,1);
+	letter-spacing: 0.04px;
+}
+#Portfolio {
+	opacity: 0.6;
+	left: 210px;
+	top: 155px;
+	position: absolute;
+	overflow: visible;
+	width: 55px;
+	white-space: nowrap;
+	--web-animation: fadein 0.3s ease-out;
+	--web-action-type: page;
+	--web-action-target: Portfolio.html;
+	cursor: pointer;
+	line-height: 26px;
+	margin-top: -7px;
+	text-align: center;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 12px;
+	color: rgba(0,0,0,1);
+	letter-spacing: 0.04px;
+}
+#Group_1784 {
+	position: absolute;
+	width: 81px;
+	height: 32px;
+	left: 281px;
+	top: 0px;
+	overflow: visible;
+	--web-animation: fadein 0.3s ease-out;
+	--web-action-type: page;
+	--web-action-target: Login.html;
+	cursor: pointer;
+}
+#Group_1785 {
+	position: absolute;
+	width: 81px;
+	height: 32px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#Button_bl {
+	fill: rgba(255,79,79,1);
+}
+.Button_bl {
+	position: absolute;
+	overflow: visible;
+	width: 81px;
+	height: 32px;
+	left: 0px;
+	top: 0px;
+}
+#Logout {
+	left: 19px;
+	top: 9px;
+	position: absolute;
+	overflow: visible;
+	width: 45px;
+	white-space: nowrap;
+	line-height: 26px;
+	margin-top: -7px;
+	text-align: center;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 12px;
+	color: rgba(255,255,255,1);
+	letter-spacing: 0.04px;
+}
+
+
+#logout-dashboard {
+	font-size: 12px;
+	color: rgba(255,255,255,1);
+}
+
+#logo2 {
+	filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.161));
+	position: absolute;
+	width: 261px;
+	height: 82px;
+	left: 57px;
+	top: 68px;
+	overflow: visible;
+}
+#Group_32 {
+	position: absolute;
+	width: 343px;
+	height: 259px;
+	left: 16px;
+	top: 544px;
+	overflow: visible;
+}
+#card {
+	position: absolute;
+	width: 343px;
+	height: 259px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#Rectangle_525 {
+	fill: rgba(255,255,255,1);
+}
+.Rectangle_525 {
+	position: absolute;
+	overflow: visible;
+	width: 343px;
+	height: 259px;
+	left: 0px;
+	top: 0px;
+}
+#Image_1 {
+	position: absolute;
+	width: 330px;
+	height: 242px;
+	left: 7px;
+	top: 14px;
+	overflow: visible;
+}
+#Group_31 {
+	position: absolute;
+	width: 343px;
+	height: 272px;
+	left: 16px;
+	top: 245px;
+	overflow: visible;
+}
+#data {
+	position: absolute;
+	width: 343px;
+	height: 272px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#bg_bu {
+	fill: rgba(255,255,255,1);
+}
+.bg_bu {
+	position: absolute;
+	overflow: visible;
+	width: 343px;
+	height: 272px;
+	left: 0px;
+	top: 0px;
+}
+#card_bv {
+	position: absolute;
+	width: 279px;
+	height: 156px;
+	left: 32px;
+	top: 91px;
+	overflow: visible;
+}
+#num {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	left: -1477px;
+	top: -516px;
+	overflow: visible;
+}
+#line {
+	position: absolute;
+	width: 279px;
+	height: 20px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#Profit {
+	left: 30px;
+	top: 0px;
+	position: absolute;
+	overflow: visible;
+	width: 47px;
+	white-space: nowrap;
+	line-height: 30px;
+	margin-top: -7px;
+	text-align: left;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 16px;
+	color: rgba(53,38,65,1);
+	letter-spacing: -0.16071430206298828px;
+}
+#Profit2 {
+	opacity: 0.7;
+	left: 203px;
+	top: 2px;
+	position: absolute;
+	overflow: visible;
+	width: 77px;
+	white-space: nowrap;
+	line-height: 26px;
+	margin-top: -6px;
+	text-align: right;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	color: rgba(53,38,65,1);
+	letter-spacing: -0.16071670532226562px;
+}
+#Ellipse_90 {
+	fill: rgba(138,86,172,1);
+}
+.Ellipse_90 {
+	position: absolute;
+	overflow: visible;
+	width: 14px;
+	height: 14px;
+	left: 0px;
+	top: 2px;
+}
+#line_b {
+	position: absolute;
+	width: 279px;
+	height: 20px;
+	left: 0px;
+	top: 91px;
+	overflow: visible;
+}
+#Deposit {
+	left: 30px;
+	top: 0px;
+	position: absolute;
+	overflow: visible;
+	width: 62px;
+	white-space: nowrap;
+	line-height: 30px;
+	margin-top: -7px;
+	text-align: left;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 16px;
+	color: rgba(53,38,65,1);
+	letter-spacing: -0.16071430206298828px;
+}
+#Deposit2 {
+	opacity: 0.7;
+	left: 200px;
+	top: 2px;
+	position: absolute;
+	overflow: visible;
+	width: 80px;
+	white-space: nowrap;
+	line-height: 26px;
+	margin-top: -6px;
+	text-align: right;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	color: rgba(53,38,65,1);
+	letter-spacing: -0.16071670532226562px;
+}
+#Ellipse_90_b {
+	fill: rgba(95,69,145,1);
+}
+.Ellipse_90_b {
+	position: absolute;
+	overflow: visible;
+	width: 14px;
+	height: 14px;
+	left: 0px;
+	top: 3px;
+}
+#line_ca {
+	position: absolute;
+	width: 279px;
+	height: 20px;
+	left: 0px;
+	top: 136px;
+	overflow: visible;
+}
+#Amount {
+	left: 30px;
+	top: 0px;
+	position: absolute;
+	overflow: visible;
+	width: 66px;
+	white-space: nowrap;
+	line-height: 30px;
+	margin-top: -7px;
+	text-align: left;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 16px;
+	color: rgba(53,38,65,1);
+	letter-spacing: -0.16071430206298828px;
+}
+#Amount2 {
+	opacity: 0.7;
+	left: 236px;
+	top: 2px;
+	position: absolute;
+	overflow: visible;
+	width: 44px;
+	white-space: nowrap;
+	line-height: 26px;
+	margin-top: -6px;
+	text-align: right;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	color: rgba(53,38,65,1);
+	letter-spacing: -0.16071670532226562px;
+}
+#Ellipse_90_ca {
+	fill: rgba(149,153,179,1);
+}
+.Ellipse_90_ca {
+	position: absolute;
+	overflow: visible;
+	width: 14px;
+	height: 14px;
+	left: 0px;
+	top: 3px;
+}
+#line_cb {
+	position: absolute;
+	width: 279px;
+	height: 20px;
+	left: 0px;
+	top: 46px;
+	overflow: visible;
+}
+#Duration {
+	left: 30px;
+	top: 0px;
+	position: absolute;
+	overflow: visible;
+	width: 72px;
+	white-space: nowrap;
+	line-height: 30px;
+	margin-top: -7px;
+	text-align: left;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 16px;
+	color: rgba(53,38,65,1);
+	letter-spacing: -0.16071430206298828px;
+}
+#Duration2 {
+	opacity: 0.7;
+	left: 232px;
+	top: 2px;
+	position: absolute;
+	overflow: visible;
+	width: 48px;
+	white-space: nowrap;
+	line-height: 26px;
+	margin-top: -6px;
+	text-align: right;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	color: rgba(53,38,65,1);
+	letter-spacing: -0.16071670532226562px;
+}
+#Ellipse_90_cc {
+	fill: rgba(79,141,203,1);
+}
+.Ellipse_90_cc {
+	position: absolute;
+	overflow: visible;
+	width: 14px;
+	height: 14px;
+	left: 0px;
+	top: 2px;
+}
+#DividerDark {
+	position: absolute;
+	width: 279px;
+	height: 0px;
+	left: 0px;
+	top: 31px;
+	overflow: visible;
+}
+#DividerDark_ce {
+	opacity: 0.138;
+	fill: transparent;
+	stroke: rgba(153,143,162,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.DividerDark_ce {
+	overflow: visible;
+	position: absolute;
+	width: 279px;
+	height: 1px;
+	left: 0px;
+	top: 0px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#DividerDark_cf {
+	position: absolute;
+	width: 279px;
+	height: 0px;
+	left: 0px;
+	top: 74px;
+	overflow: visible;
+}
+#DividerDark_cg {
+	opacity: 0.138;
+	fill: transparent;
+	stroke: rgba(153,143,162,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.DividerDark_cg {
+	overflow: visible;
+	position: absolute;
+	width: 279px;
+	height: 1px;
+	left: 0px;
+	top: 0px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#DividerDark_ch {
+	position: absolute;
+	width: 279px;
+	height: 0px;
+	left: 0px;
+	top: 120px;
+	overflow: visible;
+}
+#DividerDark_ci {
+	opacity: 0.138;
+	fill: transparent;
+	stroke: rgba(153,143,162,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.DividerDark_ci {
+	overflow: visible;
+	position: absolute;
+	width: 279px;
+	height: 1px;
+	left: 0px;
+	top: 0px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#text {
+	position: absolute;
+	width: 170px;
+	height: 52px;
+	left: 26px;
+	top: 20px;
+	overflow: visible;
+}
+#Username {
+	left: 0px;
+	top: 0px;
+	position: absolute;
+	overflow: visible;
+	width: 171px;
+	white-space: nowrap;
+	line-height: 44px;
+	margin-top: -8px;
+	text-align: left;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 28px;
+	color: rgba(36,19,50,1);
+}
+#Bank {
+	left: 0px;
+	top: 34px;
+	position: absolute;
+	overflow: visible;
+	width: 121px;
+	white-space: nowrap;
+	line-height: 17px;
+	margin-top: -1.5px;
+	text-align: left;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	color: rgba(153,143,162,1);
+}

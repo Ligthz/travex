@@ -1,0 +1,1147 @@
+.mediaViewInfo {
+	--web-view-name: Portfolio;
+	--web-view-id: Portfolio;
+	--web-scale-on-resize: true;
+	--web-enable-deep-linking: true;
+}
+:root {
+	--web-view-ids: Portfolio;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	border: none;
+}
+#Portfolio {
+	position: absolute;
+	width: 100%;
+	height: 812px;
+	background-color: rgba(97,79,255,0.671);
+	overflow: hidden;
+	--web-view-name: Portfolio;
+	--web-view-id: Portfolio;
+	--web-scale-on-resize: true;
+	--web-enable-deep-linking: true;
+}
+@keyframes fadein {
+
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+
+}
+#content {
+	position: absolute;
+	width: 494px;
+	height: 812px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#card {
+	position: absolute;
+	width: 494px;
+	height: 392px;
+	left: 0px;
+	top: 420px;
+	overflow: visible;
+}
+#bg {
+	fill: rgba(36,19,50,1);
+	stroke: rgba(66,48,80,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.bg {
+	position: absolute;
+	overflow: visible;
+	width: 375px;
+	height: 392px;
+	left: 0px;
+	top: 0px;
+}
+#Total_Investment {
+	opacity: 0.999;
+	left: 56px;
+	top: 176px;
+	position: absolute;
+	overflow: visible;
+	width: 123px;
+	white-space: nowrap;
+	line-height: 20px;
+	margin-top: -3px;
+	text-align: left;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 14px;
+	color: rgba(255,255,255,1);
+	letter-spacing: -0.1px;
+}
+#Repeat_Grid_5 {
+	position: absolute;
+	width: 462px;
+	height: 118px;
+	left: 32px;
+	top: 209px;
+	overflow: auto;
+}
+#Group_1781 {
+	position: absolute;
+	width: 141px;
+	height: 118px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#Group {
+	position: absolute;
+	width: 141px;
+	height: 118px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#Rectangle_547 {
+	fill: rgba(53,38,65,1);
+}
+.Rectangle_547 {
+	position: absolute;
+	overflow: visible;
+	width: 141px;
+	height: 118px;
+	left: 0px;
+	top: 0px;
+}
+#Rectangle_546_t {
+	fill: url(#Rectangle_546_t);
+}
+.Rectangle_546_t {
+	position: absolute;
+	overflow: visible;
+	width: 141px;
+	height: 61px;
+	left: 0px;
+	top: 57px;
+}
+#text {
+	position: absolute;
+	width: 115px;
+	height: 76px;
+	left: 24px;
+	top: 13px;
+	overflow: visible;
+}
+#back_w {
+	fill: url(#back_w);
+}
+.back_w {
+	display: none;
+	position: absolute;
+	overflow: visible;
+	width: 152px;
+	height: 200px;
+	left: -48px;
+	top: -99px;
+}
+#ID1375 {
+	left: 0px;
+	top: 0px;
+	position: absolute;
+	overflow: visible;
+	width: 116px;
+	height: 58px;
+	text-align: left;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 44px;
+	color: rgba(255,255,255,1);
+}
+#Profit_Trade {
+	opacity: 0.701;
+	left: 0px;
+	top: 61px;
+	position: absolute;
+	overflow: visible;
+	width: 72px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 12px;
+	color: rgba(255,255,255,1);
+}
+#refresh-cw {
+	opacity: 0.11;
+	position: absolute;
+	width: 25.888px;
+	height: 21.176px;
+	left: 68.5px;
+	top: 8.32px;
+	display: none;
+	overflow: visible;
+}
+#Path_180 {
+	fill: transparent;
+	stroke: rgba(255,255,255,1);
+	stroke-width: 2px;
+	stroke-linejoin: round;
+	stroke-linecap: round;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Path_180 {
+	overflow: visible;
+	position: absolute;
+	width: 9.06px;
+	height: 9.06px;
+	left: 18.827px;
+	top: 1.174px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Path_181 {
+	fill: transparent;
+	stroke: rgba(255,255,255,1);
+	stroke-width: 2px;
+	stroke-linejoin: round;
+	stroke-linecap: round;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Path_181 {
+	overflow: visible;
+	position: absolute;
+	width: 9.06px;
+	height: 9.06px;
+	left: 0px;
+	top: 12.941px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Path_182 {
+	fill: transparent;
+	stroke: rgba(255,255,255,1);
+	stroke-width: 2px;
+	stroke-linejoin: round;
+	stroke-linecap: round;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Path_182 {
+	overflow: visible;
+	position: absolute;
+	width: 28.715px;
+	height: 23.275px;
+	left: 0px;
+	top: 0px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Group_1781_ {
+	position: absolute;
+	width: 141px;
+	height: 118px;
+	left: 153px;
+	top: 0px;
+	overflow: visible;
+}
+#Group_ {
+	position: absolute;
+	width: 141px;
+	height: 118px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#Rectangle_547_ {
+	fill: rgba(53,38,65,1);
+}
+.Rectangle_547_ {
+	position: absolute;
+	overflow: visible;
+	width: 141px;
+	height: 118px;
+	left: 0px;
+	top: 0px;
+}
+#Rectangle_546_ba {
+	fill: url(#Rectangle_546_ba);
+}
+.Rectangle_546_ba {
+	position: absolute;
+	overflow: visible;
+	width: 141px;
+	height: 61px;
+	left: 0px;
+	top: 57px;
+}
+#text_ {
+	position: absolute;
+	width: 115px;
+	height: 76px;
+	left: 24px;
+	top: 13px;
+	overflow: visible;
+}
+#back_ba {
+	fill: url(#back_ba);
+}
+.back_ba {
+	display: none;
+	position: absolute;
+	overflow: visible;
+	width: 152px;
+	height: 200px;
+	left: -48px;
+	top: -99px;
+}
+#ID157 {
+	left: 0px;
+	top: 0px;
+	position: absolute;
+	overflow: visible;
+	width: 116px;
+	height: 58px;
+	text-align: left;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 44px;
+	color: rgba(255,255,255,1);
+}
+#Contra_Trade {
+	opacity: 0.701;
+	left: 0px;
+	top: 61px;
+	position: absolute;
+	overflow: visible;
+	width: 79px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 12px;
+	color: rgba(255,255,255,1);
+}
+#refresh-cw_bd {
+	opacity: 0.11;
+	position: absolute;
+	width: 25.888px;
+	height: 21.176px;
+	left: 68.5px;
+	top: 8.32px;
+	display: none;
+	overflow: visible;
+}
+#Path_180_be {
+	fill: transparent;
+	stroke: rgba(255,255,255,1);
+	stroke-width: 2px;
+	stroke-linejoin: round;
+	stroke-linecap: round;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Path_180_be {
+	overflow: visible;
+	position: absolute;
+	width: 9.06px;
+	height: 9.06px;
+	left: 18.827px;
+	top: 1.174px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Path_181_bf {
+	fill: transparent;
+	stroke: rgba(255,255,255,1);
+	stroke-width: 2px;
+	stroke-linejoin: round;
+	stroke-linecap: round;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Path_181_bf {
+	overflow: visible;
+	position: absolute;
+	width: 9.06px;
+	height: 9.06px;
+	left: 0px;
+	top: 12.941px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Path_182_bg {
+	fill: transparent;
+	stroke: rgba(255,255,255,1);
+	stroke-width: 2px;
+	stroke-linejoin: round;
+	stroke-linecap: round;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Path_182_bg {
+	overflow: visible;
+	position: absolute;
+	width: 28.715px;
+	height: 23.275px;
+	left: 0px;
+	top: 0px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Group_1781_bh {
+	position: absolute;
+	width: 141px;
+	height: 118px;
+	left: 306px;
+	top: 0px;
+	overflow: visible;
+}
+#Group_bi {
+	position: absolute;
+	width: 141px;
+	height: 118px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#Rectangle_547_bj {
+	fill: rgba(53,38,65,1);
+}
+.Rectangle_547_bj {
+	position: absolute;
+	overflow: visible;
+	width: 141px;
+	height: 118px;
+	left: 0px;
+	top: 0px;
+}
+#Rectangle_546_bl {
+	fill: url(#Rectangle_546_bl);
+}
+.Rectangle_546_bl {
+	position: absolute;
+	overflow: visible;
+	width: 141px;
+	height: 61px;
+	left: 0px;
+	top: 57px;
+}
+#text_bm {
+	position: absolute;
+	width: 115px;
+	height: 76px;
+	left: 24px;
+	top: 13px;
+	overflow: visible;
+}
+#back_bo {
+	fill: url(#back_bo);
+}
+.back_bo {
+	display: none;
+	position: absolute;
+	overflow: visible;
+	width: 152px;
+	height: 200px;
+	left: -48px;
+	top: -99px;
+}
+#ID23 {
+	left: 0px;
+	top: 0px;
+	position: absolute;
+	overflow: visible;
+	width: 116px;
+	height: 58px;
+	text-align: left;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 44px;
+	color: rgba(255,255,255,1);
+}
+#Lost_Trade {
+	opacity: 0.701;
+	left: 0px;
+	top: 61px;
+	position: absolute;
+	overflow: visible;
+	width: 63px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 12px;
+	color: rgba(255,255,255,1);
+}
+#refresh-cw_br {
+	opacity: 0.11;
+	position: absolute;
+	width: 25.888px;
+	height: 21.176px;
+	left: 68.5px;
+	top: 8.32px;
+	display: none;
+	overflow: visible;
+}
+#Path_180_bs {
+	fill: transparent;
+	stroke: rgba(255,255,255,1);
+	stroke-width: 2px;
+	stroke-linejoin: round;
+	stroke-linecap: round;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Path_180_bs {
+	overflow: visible;
+	position: absolute;
+	width: 9.06px;
+	height: 9.06px;
+	left: 18.827px;
+	top: 1.174px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Path_181_bt {
+	fill: transparent;
+	stroke: rgba(255,255,255,1);
+	stroke-width: 2px;
+	stroke-linejoin: round;
+	stroke-linecap: round;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Path_181_bt {
+	overflow: visible;
+	position: absolute;
+	width: 9.06px;
+	height: 9.06px;
+	left: 0px;
+	top: 12.941px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Path_182_bu {
+	fill: transparent;
+	stroke: rgba(255,255,255,1);
+	stroke-width: 2px;
+	stroke-linejoin: round;
+	stroke-linecap: round;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Path_182_bu {
+	overflow: visible;
+	position: absolute;
+	width: 28.715px;
+	height: 23.275px;
+	left: 0px;
+	top: 0px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Group_1781_bv {
+	position: absolute;
+	width: 141px;
+	height: 118px;
+	left: 459px;
+	top: 0px;
+	overflow: visible;
+}
+#Group_bw {
+	position: absolute;
+	width: 141px;
+	height: 118px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#Rectangle_547_bx {
+	fill: rgba(53,38,65,1);
+}
+.Rectangle_547_bx {
+	position: absolute;
+	overflow: visible;
+	width: 141px;
+	height: 118px;
+	left: 0px;
+	top: 0px;
+}
+#Rectangle_546_bz {
+	fill: url(#Rectangle_546_bz);
+}
+.Rectangle_546_bz {
+	position: absolute;
+	overflow: visible;
+	width: 141px;
+	height: 61px;
+	left: 0px;
+	top: 57px;
+}
+#text_b {
+	position: absolute;
+	width: 115px;
+	height: 76px;
+	left: 24px;
+	top: 13px;
+	overflow: visible;
+}
+#back_ca {
+	fill: url(#back_ca);
+}
+.back_ca {
+	display: none;
+	position: absolute;
+	overflow: visible;
+	width: 152px;
+	height: 200px;
+	left: -48px;
+	top: -99px;
+}
+#Cobra {
+	left: 0px;
+	top: 0px;
+	position: absolute;
+	overflow: hidden;
+	width: 116px;
+	height: 58px;
+	text-align: left;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 44px;
+	color: rgba(255,255,255,1);
+}
+#ID46 {
+	opacity: 0.701;
+	left: 0px;
+	top: 61px;
+	position: absolute;
+	overflow: visible;
+	width: 19px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 12px;
+	color: rgba(255,255,255,1);
+}
+#refresh-cw_b {
+	opacity: 0.11;
+	position: absolute;
+	width: 25.888px;
+	height: 21.176px;
+	left: 68.5px;
+	top: 8.32px;
+	display: none;
+	overflow: visible;
+}
+#Path_180_b {
+	fill: transparent;
+	stroke: rgba(255,255,255,1);
+	stroke-width: 2px;
+	stroke-linejoin: round;
+	stroke-linecap: round;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Path_180_b {
+	overflow: visible;
+	position: absolute;
+	width: 9.06px;
+	height: 9.06px;
+	left: 18.827px;
+	top: 1.174px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Path_181_b {
+	fill: transparent;
+	stroke: rgba(255,255,255,1);
+	stroke-width: 2px;
+	stroke-linejoin: round;
+	stroke-linecap: round;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Path_181_b {
+	overflow: visible;
+	position: absolute;
+	width: 9.06px;
+	height: 9.06px;
+	left: 0px;
+	top: 12.941px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Path_182_b {
+	fill: transparent;
+	stroke: rgba(255,255,255,1);
+	stroke-width: 2px;
+	stroke-linejoin: round;
+	stroke-linecap: round;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Path_182_b {
+	overflow: visible;
+	position: absolute;
+	width: 28.715px;
+	height: 23.275px;
+	left: 0px;
+	top: 0px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#card_b {
+	position: absolute;
+	width: 375px;
+	height: 392px;
+	left: 0px;
+	top: 179px;
+	overflow: visible;
+}
+#bg_ca {
+	fill: rgba(212,127,166,1);
+}
+.bg_ca {
+	position: absolute;
+	overflow: visible;
+	width: 375px;
+	height: 392px;
+	left: 0px;
+	top: 0px;
+}
+#Mask_Group_9 {
+	position: absolute;
+	width: 375px;
+	height: 279px;
+	left: 0px;
+	top: 113px;
+	overflow: visible;
+}
+#ID80 {
+	left: 56px;
+	top: 281px;
+	position: absolute;
+	overflow: visible;
+	width: 73px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 57px;
+	color: rgba(255,255,255,1);
+	letter-spacing: -0.7px;
+}
+#days {
+	opacity: 0.402;
+	left: 139px;
+	top: 287px;
+	position: absolute;
+	overflow: visible;
+	width: 109px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: lighter;
+	font-size: 48px;
+	color: rgba(255,255,255,1);
+}
+#Average_Return_of_Investment {
+	opacity: 0.56;
+	left: 56px;
+	top: 355px;
+	position: absolute;
+	overflow: visible;
+	width: 212px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	color: rgba(255,255,255,1);
+}
+#iconschevron {
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	left: 319px;
+	top: 233px;
+	overflow: visible;
+}
+#back_cg {
+	fill: transparent;
+}
+.back_cg {
+	position: absolute;
+	overflow: visible;
+	width: 24px;
+	height: 24px;
+	left: 0px;
+	top: 0px;
+}
+#ico {
+	fill: rgba(120,132,158,1);
+}
+.ico {
+	display: none;
+	overflow: visible;
+	position: absolute;
+	width: 23px;
+	height: 5px;
+	left: 1px;
+	top: 10px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#line {
+	fill: rgba(255,255,255,1);
+}
+.line {
+	width: 8px;
+	height: 2px;
+	position: absolute;
+	overflow: visible;
+	transform: translate(0px, 0px) matrix(1,0,0,1,6.535,11) rotate(45deg);
+	transform-origin: center;
+}
+#line_cj {
+	fill: rgba(255,255,255,1);
+}
+.line_cj {
+	width: 8px;
+	height: 2px;
+	position: absolute;
+	overflow: visible;
+	transform: translate(0px, 0px) matrix(1,0,0,1,10.8355,11) rotate(-45deg);
+	transform-origin: center;
+}
+#card_ck {
+	position: absolute;
+	width: 375px;
+	height: 392px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#graph {
+	position: absolute;
+	width: 375px;
+	height: 392px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#bg_cm {
+	fill: rgba(255,255,255,1);
+}
+.bg_cm {
+	position: absolute;
+	overflow: visible;
+	width: 375px;
+	height: 392px;
+	left: 0px;
+	top: 0px;
+}
+#Mask_Group_8 {
+	position: absolute;
+	width: 375px;
+	height: 275px;
+	left: 0px;
+	top: 117px;
+	overflow: visible;
+}
+#RM312K {
+	left: 56px;
+	top: 291px;
+	position: absolute;
+	overflow: visible;
+	width: 177px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 45px;
+	color: rgba(255,255,255,1);
+	letter-spacing: -0.2px;
+}
+#___month {
+	opacity: 0.4;
+	left: 213px;
+	top: 297px;
+	position: absolute;
+	overflow: visible;
+	width: 138px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: lighter;
+	font-size: 48px;
+	color: rgba(255,255,255,1);
+}
+#Average_Profit {
+	opacity: 0.56;
+	left: 56px;
+	top: 355px;
+	position: absolute;
+	overflow: visible;
+	width: 101px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	color: rgba(255,255,255,1);
+}
+#iconschevron_cr {
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	left: 319px;
+	top: 232px;
+	overflow: visible;
+}
+#back_cs {
+	fill: transparent;
+}
+.back_cs {
+	position: absolute;
+	overflow: visible;
+	width: 24px;
+	height: 24px;
+	left: 0px;
+	top: 0px;
+}
+#ico_ct {
+	fill: rgba(120,132,158,1);
+}
+.ico_ct {
+	display: none;
+	overflow: visible;
+	position: absolute;
+	width: 23px;
+	height: 5px;
+	left: 1px;
+	top: 10px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#line_cu {
+	fill: rgba(255,255,255,1);
+}
+.line_cu {
+	width: 8px;
+	height: 2px;
+	position: absolute;
+	overflow: visible;
+	transform: translate(0px, 0px) matrix(1,0,0,1,6.535,11) rotate(45deg);
+	transform-origin: center;
+}
+#line_cv {
+	fill: rgba(255,255,255,1);
+}
+.line_cv {
+	width: 8px;
+	height: 2px;
+	position: absolute;
+	overflow: visible;
+	transform: translate(0px, 0px) matrix(1,0,0,1,10.8355,11) rotate(-45deg);
+	transform-origin: center;
+}
+#logo2 {
+	filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.161));
+	position: absolute;
+	width: 261px;
+	height: 82px;
+	left: 57px;
+	top: 69px;
+	overflow: visible;
+}
+#tab3_optionsdark {
+	position: absolute;
+	width: 361px;
+	height: 48px;
+	left: 0px;
+	top: 151px;
+	overflow: visible;
+}
+#Group_1782 {
+	position: absolute;
+	width: 361px;
+	height: 48px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+	--web-animation: fadein 0.3s ease-out;
+	--web-action-type: page;
+	--web-action-target: About.html;
+	cursor: pointer;
+}
+#bg_cz {
+	opacity: 0;
+	fill: rgba(255,255,255,1);
+}
+.bg_cz {
+	position: absolute;
+	overflow: visible;
+	width: 361px;
+	height: 48px;
+	left: 0px;
+	top: 0px;
+}
+#Transaction {
+	opacity: 0.6;
+	left: 18px;
+	top: 17px;
+	position: absolute;
+	overflow: visible;
+	width: 75px;
+	white-space: nowrap;
+	--web-animation: fadein 0.3s ease-out;
+	--web-action-type: page;
+	--web-action-target: Dashboard.html;
+	cursor: pointer;
+	line-height: 26px;
+	margin-top: -7px;
+	text-align: center;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 12px;
+	color: rgba(0,0,0,1);
+	letter-spacing: 0.04px;
+}
+#About_Traves {
+	opacity: 0.6;
+	left: 276px;
+	top: 17px;
+	position: absolute;
+	overflow: visible;
+	width: 83px;
+	white-space: nowrap;
+	line-height: 26px;
+	margin-top: -7px;
+	text-align: center;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 12px;
+	color: rgba(0,0,0,1);
+	letter-spacing: 0.04px;
+}
+#Group_34 {
+	position: absolute;
+	width: 75.893px;
+	height: 32px;
+	left: 189.336px;
+	top: 8px;
+	overflow: visible;
+}
+#Group_36 {
+	position: absolute;
+	width: 75.893px;
+	height: 32px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#Button {
+	fill: rgba(255,131,79,1);
+}
+.Button {
+	overflow: visible;
+	position: absolute;
+	width: 75.893px;
+	height: 32px;
+	left: 0px;
+	top: 0px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Portfolio_c {
+	left: 10.664px;
+	top: 9px;
+	position: absolute;
+	overflow: visible;
+	width: 55px;
+	white-space: nowrap;
+	line-height: 26px;
+	margin-top: -7px;
+	text-align: center;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 12px;
+	color: rgba(255,255,255,1);
+	letter-spacing: 0.04px;
+}
+#Latest_News {
+	opacity: 0.6;
+	left: 103px;
+	top: 17px;
+	position: absolute;
+	overflow: visible;
+	width: 77px;
+	white-space: nowrap;
+	--web-animation: fadein 0.3s ease-out;
+	--web-action-type: page;
+	--web-action-target: Latest_News.html;
+	cursor: pointer;
+	line-height: 26px;
+	margin-top: -7px;
+	text-align: center;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 12px;
+	color: rgba(0,0,0,1);
+	letter-spacing: 0.04px;
+}
+#Group_1786 {
+	position: absolute;
+	width: 81px;
+	height: 32px;
+	left: 281px;
+	top: 17px;
+	overflow: visible;
+	--web-animation: fadein 0.3s ease-out;
+	--web-action-type: page;
+	--web-action-target: Login.html;
+	cursor: pointer;
+}
+#Button_c {
+	fill: rgba(255,79,79,1);
+}
+.Button_c {
+	position: absolute;
+	overflow: visible;
+	width: 81px;
+	height: 32px;
+	left: 0px;
+	top: 0px;
+}
+#Logout {
+	left: 19px;
+	top: 9px;
+	position: absolute;
+	overflow: visible;
+	width: 45px;
+	white-space: nowrap;
+	line-height: 26px;
+	margin-top: -7px;
+	text-align: center;
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 12px;
+	color: rgba(255,255,255,1);
+	letter-spacing: 0.04px;
+}
