@@ -15,14 +15,14 @@
 }
 #Latest_News {
 	position: absolute;
-	width: 375px;
-	height: 812px;
+	width: 100%;
+	height: 100%;
 	background-color: rgba(48,26,159,1);
-	overflow: hidden;
 	--web-view-name: Latest News;
 	--web-view-id: Latest_News;
 	--web-scale-on-resize: true;
 	--web-enable-deep-linking: true;
+	overflow: hidden;
 }
 @keyframes fadein {
 
@@ -378,15 +378,22 @@
 	height: 772px;
 	left: 16px;
 	top: 243px;
-	overflow: visible;
+	overflow: auto;
 }
 #post-image {
-	position: absolute;
+	position: relative;
 	width: 343px;
-	height: 271px;
+	height: 300px;
 	left: 0px;
-	top: 250px;
-	overflow: visible;
+	top: 0px;
+    overflow: visible;
+    box-shadow: inset -8px -8px 8px 0 rgba(174, 174, 192, 0.25),
+                inset 8px 8px 8px 0 #fff,
+                -1px -1px 5px 0 #fff,
+                8px 8px 10px 0 rgba(174, 174, 192, 0.4);
+    border-radius:20px;
+    background-color:#F0F0F3;
+	
 }
 #form {
 	fill: rgba(255,255,255,1);
@@ -397,7 +404,7 @@
 	width: 343px;
 	height: 271px;
 	left: 0px;
-	top: 0px;
+	top: 20px;
 }
 #content_bi {
 	position: absolute;
@@ -530,7 +537,7 @@
 	fill: rgba(255,255,255,1);
 }
 .bg_bu {
-	position: absolute;
+	position: relative;
 	overflow: visible;
 	width: 343px;
 	height: 234px;

@@ -17,7 +17,7 @@ from .forms import *
 from .decorators import unauthenticated_user, allowed_users, admin_only
 from crm1.settings import MEDIA_ROOT
 
-import random
+import random, datetime
 import string
 import colorsys
 import json
@@ -61,7 +61,10 @@ def loginPage(request):
 
         if user is not None:
             login(request, user)
-            record_action(request.user,"Login")
+            #record_action(request.user,"Login")
+            user_obj = Account.objects.get(username=username)
+            user_obj.last_login = time_now()
+            user_obj.save()
             return redirect('home')
         else:
             if request.user.is_active == False:
@@ -93,12 +96,44 @@ def record_action(user,action):
 @csrf_exempt
 def home(request):
     user = request.user
-    if request.is_ajax():
-        datas = []
-        return JsonResponse({"success":True,"datas":datas})
-    record_action(request.user,"Home")
+    if request.method == 'POST':
+        #datas = []
+        #return JsonResponse({"success":True,"datas":datas})
+        #user_id = request.POST.get('')
+        #user = Account.objects.get()
+        print(request.POST)
+        for submision in request.POST:
+            if "Submission-" in submision:
+                user_id = int(submision.split("-")[-1])
+                user = Account.objects.get(id=user_id)
+                break
+        return render(request, 'accounts/account_settings.html',{'user':user})
 
-    return render(request, 'accounts/dashboard.html')
+    #record_action(request.user,"Home")
+
+    current_time = time_now()
+    day_range = [current_time-datetime.timedelta(days=1),current_time]
+    week_range = [current_time-datetime.timedelta(days=7),current_time]
+    month_range = [current_time-datetime.timedelta(days=30),current_time]
+
+    daily_user = Account.objects.filter(date_created__range=day_range, is_staff=False, is_active=True).count()
+    weekly_user = Account.objects.filter(date_created__range=week_range, is_staff=False, is_active=True).count()
+    monthly_user = Account.objects.filter(date_created__range=month_range, is_staff=False, is_active=True).count()
+
+    tickets = [["Daily User",daily_user],["Weekly User",weekly_user],["Monthly User",monthly_user]]
+
+    data = []
+    today_login_user = Account.objects.filter(last_login__range=day_range, is_staff=False, is_active=True)
+    if today_login_user.count() == 0:
+        NoData = True
+    else:
+        NoData = False
+        data.append(today_login_user[0].para())
+        data.append([])
+        for obj in today_login_user:
+            data[1].append(obj.list())
+
+    return render(request, 'accounts/dashboard.html',{'tickets':tickets,'NoData':NoData,'data':data})
 
 @login_required(login_url='login')
 def userPage(request):
@@ -111,55 +146,23 @@ def userPage(request):
 
 @login_required(login_url='login')
 @admin_only
-def data_landing(request,datatype,line):
+def data_landing(request):
     user = request.user
-    if request.method == 'POST':
-        personal = request.POST.get('Machine')
-        date1 = request.POST.get('date1')
-        date2 = request.POST.get('date2')
-        if date1 == '':
-            date1 = '2020-01-01T00:00'
-
-        date1 = datetime.datetime.strptime(date1, '%Y-%m-%dT%H:%M')
-        if date2 == '':
-            date2 = '2120-01-01T23:59'
-        date2 = datetime.datetime.strptime(date2, '%Y-%m-%dT%H:%M')
-
-        time_range=[date1,date2]
-
-        if "All" not in personal:
-            data_objs = LogData.objects.filter(DateCreated__range=time_range,PIC=personal)
-        else:
-            data_objs = LogData.objects.filter(DateCreated__range=time_range)
-
-        datas = [[],[]]
-        if len(data_objs) == 0:
-            no_data = True
-        else:
-            no_data = False
-        
-            para = data_objs[0].parameter()
-            data = []
-            for obj in data_objs:
-                data.append(obj.list())
-            datas[0] = para
-            datas[1] = data
-
-        header = [line+" Site Data","Logged Data of personal : " +str(personal)+" from "+str(date1)+" to "+str(date2),"Tabulated Data"]
-        
-        context = {'data':datas,'NoData':no_data,'Header':header}
-
-        return render(request, 'CRUD/tabulate.html', context)
+    
+    
+    data = []
+    today_login_user = Account.objects.filter(is_staff=False, is_active=True)
+    if today_login_user.count() == 0:
+        NoData = True
     else:
-        personal_list = []
-        account_obj = Account.objects.filter(Site=line)
-        for personal in account_obj:
-            personal_list.append([personal.name, personal.Site])
-        personal_list.sort()
-        header = [line+" Site","Data Analysis","Data Filter"]
-        context = {'Machine':personal_list,'Header':header,"Line":line}#'statuses':statuses, 'tables':tables}
+        NoData = False
+        data.append(today_login_user[0].para())
+        data.append([])
+        for obj in today_login_user:
+            data[1].append(obj.list())
 
-        return render(request, 'CRUD/landing.html', context)
+
+    return render(request, 'accounts/tabulate.html', {'NoData':NoData,'data':data})
 
 
 

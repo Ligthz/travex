@@ -10,20 +10,20 @@ window.onload = function(e){
 }
 
 function refresher(){
-    $.ajax({
+    /*$.ajax({
         type: "POST",
         data: {
             'csrfmiddlewaretoken': '{{ csrf_token }}',
         },
         dataType: 'json',
-        url: "{% url 'home' %}",
+        url: "{% url 'control-home' %}",
         success: function(data){
             for(var i=0;i<data.datas.length;i++){
                 //console.log(data.datas[i].name,data.datas[i].data)
                 document.getElementById(data.datas[i].name).className = data.datas[i].data;
             }
         }
-    });
+    });*/
 }
 
 </script>

@@ -15,8 +15,8 @@
 }
 #Dashboard {
 	position: absolute;
-	width: 375px;
-    height: 812px;
+	width: 100%;
+    height: 100%;
 	background-color: rgba(97,79,255,0.671);
 	overflow: hidden;
 	--web-view-name: Dashboard;
@@ -576,7 +576,7 @@
 	color: rgba(53,38,65,1);
 	letter-spacing: -0.16071430206298828px;
 }
-#RM320920 {
+#Profit2 {
 	opacity: 0.7;
 	left: 203px;
 	top: 2px;
@@ -630,7 +630,7 @@
 	color: rgba(53,38,65,1);
 	letter-spacing: -0.16071430206298828px;
 }
-#RM300000 {
+#Deposit2 {
 	opacity: 0.7;
 	left: 200px;
 	top: 2px;
@@ -684,7 +684,7 @@
 	color: rgba(53,38,65,1);
 	letter-spacing: -0.16071430206298828px;
 }
-#ID30_Lot {
+#Amount2 {
 	opacity: 0.7;
 	left: 236px;
 	top: 2px;
@@ -738,7 +738,7 @@
 	color: rgba(53,38,65,1);
 	letter-spacing: -0.16071430206298828px;
 }
-#ID31Days {
+#Duration2 {
 	opacity: 0.7;
 	left: 232px;
 	top: 2px;
@@ -856,7 +856,7 @@
 	top: 20px;
 	overflow: visible;
 }
-#Shzmon_Ng {
+#Username {
 	left: 0px;
 	top: 0px;
 	position: absolute;
@@ -872,7 +872,7 @@
 	font-size: 28px;
 	color: rgba(36,19,50,1);
 }
-#CIMB_7055362212 {
+#Bank {
 	left: 0px;
 	top: 34px;
 	position: absolute;

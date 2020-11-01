@@ -25,8 +25,27 @@ class MessageAdmin(admin.ModelAdmin):
     class Meta:
         model = Message
 
+class BlogAdmin(admin.ModelAdmin):
+    list_display = ["author","date_created","body","image"]
+    list_filter = ["author"]
+    class Meta:
+        model = Blog
+
+class PortfolioAdmin(admin.ModelAdmin):
+    list_display = ["average_profit","average_return_of_investment","total_investment_profit","total_investment_contra","total_investment_lost"]
+    class Meta:
+        model = Portfolio_data
+
+class About_dataAdmin(admin.ModelAdmin):
+    list_display = ["founded","header","topic1","body1","topic2","body2"]
+    class Meta:
+        model = About_data
+
 admin.site.register(Account,AccountAdmin)
-admin.site.register(Message,MessageAdmin)
-admin.site.register(UserAction,UserActionAdmin)
+#admin.site.register(Message,MessageAdmin)
+admin.site.register(Blog,BlogAdmin)
+admin.site.register(Portfolio_data,PortfolioAdmin)
+admin.site.register(About_data,About_dataAdmin)
+#admin.site.register(UserAction,UserActionAdmin)
 
 

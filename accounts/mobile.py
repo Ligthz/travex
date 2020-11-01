@@ -83,9 +83,10 @@ def logoutUser(request):
 
 # ======================== Dashboard =========================================        
 def record_action(user,action):
-    user = Account.objects.get(username=str(user))
-    action_obj = UserAction(user = user, action = action)
-    action_obj.save()
+    #user = Account.objects.get(username=str(user))
+    #action_obj = UserAction(user = user, action = action)
+    #action_obj.save()
+    pass
 
 
 def get_events(time_range,**kwargs):
@@ -107,31 +108,33 @@ def get_events(time_range,**kwargs):
 def home(request):
     user = request.user
 
-    return render(request, 'mobile/dashboard.html')
+    return render(request, 'mobile/dashboard.html',{'user': user})
 
 
 @login_required(login_url='mobile-login')
 @active_only
 def Portfolio(request):
     user = request.user
-
-    return render(request, 'mobile/portfolio.html')
+    portfolio_obj = Portfolio_data.objects.last()
+    return render(request, 'mobile/portfolio.html',{'portfolio': portfolio_obj})
 
 
 @login_required(login_url='mobile-login')
 @active_only
 def About_Traves(request):
     user = request.user
+    about_obj = About_data.objects.last()
 
-    return render(request, 'mobile/about.html')
+    return render(request, 'mobile/about.html',{'about': about_obj})
 
 
 @login_required(login_url='mobile-login')
 @active_only
 def latest_news(request):
     user = request.user
+    contents = Blog.objects.all()
 
-    return render(request, 'mobile/latest_news.html')
+    return render(request, 'mobile/latest_news.html',{'user': user,'contents':contents})
 
 
 @login_required(login_url='mobile-login')

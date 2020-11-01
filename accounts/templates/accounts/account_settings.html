@@ -28,10 +28,40 @@
 			
 			<form method="POST" action="" enctype="multipart/form-data">
 				{% csrf_token %}
-				{{form.as_p}}
+                <h4> Name:  {{user.name}} <br>
+                    Username:  {{user.username}}<br>
+                    Phone:  {{user.phone}}<br>
+                </h4>
+                <hr>
+                <p>
+                    Bank:  {{user.bank}}<br>
+                    Bank Account:  {{user.bank_account}}<br>
+                </p>
+                <hr>
+                <p>
+                    <label for="id_profit">Profit:</label> 
+                    <input type="text" name="profit" maxlength="15" value="{{user.profit}}" id="id_profit">
+                    <br>
+                    <label for="id_duration">Duration:</label> 
+                    <input type="text" name="duration" maxlength="15" value="{{user.duration}}" id="id_duration">
+                    <br>
+                    <label for="id_deposit">Deposit:</label> 
+                    <input type="text" name="deposit" maxlength="15" value="{{user.deposit}}" id="id_deposit">
+                    <br>
+                    <label for="id_amount">Amount:</label> 
+                    <input type="text" name="amount" maxlength="15" value="{{user.amount}}" id="id_amount">
+                </p>
+                <hr>
+
+
+
+        <!--fields = ['profit', 'duration','deposit','amount']
+				<label for="profit">Profit:</label>
+                <input type="text" name="profit" maxlength="15" value="123" id="id_profit"-->
 		
-			<input class="btn btn-primary" type="submit" name="Update Information">
-			</form>
+			<input class="btn btn-success" type="submit" value="Update Information">
+			<a class="btn btn-light" href="{% url 'home' %}">Back</a>
+            </form>
 		</div>
 	</div>
 </div>

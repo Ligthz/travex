@@ -121,7 +121,7 @@
 		</div>
 	</div>
 	<img id="logo2" onclick="location.href='{% url 'mobile-home' %}'" src="{% static 'images/logo2.png' %}" srcset="{% static 'images/logo2.png' %} 1x">
-	<div id="Group_32" >
+	<!--div id="Group_32" >
 		<div id="card">
 			<svg class="Rectangle_525">
 				<rect id="Rectangle_525" rx="20" ry="20" x="0" y="0" width="343" height="259">
@@ -129,7 +129,7 @@
 			</svg>
 		</div>
 		<img id="Image_1" src="{% static 'images/Image_1.png' %}" srcset="{% static 'images/Image_1.png' %} 1x">
-	</div>
+	</div-->
 	<div id="Group_31">
 		<div id="data">
 			<svg class="bg_bu">
@@ -143,8 +143,12 @@
 					<div id="Profit">
 						<span>Profit</span>
 					</div>
-					<div id="RM320920">
-						<span>RM3209.20</span>
+					<div id="Profit2">
+                        {% if user.profit == None %}
+                            <span>RM 0.00</span>
+                        {% else %}
+                            <span>RM {{user.profit}}</span>
+                        {% endif %}
 					</div>
 					<svg class="Ellipse_90">
 						<ellipse id="Ellipse_90" rx="7" ry="7" cx="7" cy="7">
@@ -155,8 +159,12 @@
 					<div id="Deposit">
 						<span>Deposit</span>
 					</div>
-					<div id="RM300000">
-						<span>RM3000.00</span>
+					<div id="Deposit2">
+                        {% if user.profit == None %}
+                            <span>RM 0.00</span>
+                        {% else %}
+                            <span>RM{{user.deposit}}</span>
+                        {% endif %}
 					</div>
 					<svg class="Ellipse_90_b">
 						<ellipse id="Ellipse_90_b" rx="7" ry="7" cx="7" cy="7">
@@ -167,8 +175,12 @@
 					<div id="Amount">
 						<span>Amount</span>
 					</div>
-					<div id="ID30_Lot">
-						<span>30 Lot</span>
+					<div id="Amount2">
+                        {% if user.profit == None %}
+                            <span>0 Lot</span>
+                        {% else %}
+                            <span>{{user.amount}} Lot</span>
+                        {% endif %}
 					</div>
 					<svg class="Ellipse_90_ca">
 						<ellipse id="Ellipse_90_ca" rx="7" ry="7" cx="7" cy="7">
@@ -179,8 +191,12 @@
 					<div id="Duration">
 						<span>Duration</span>
 					</div>
-					<div id="ID31Days">
-						<span>31Days</span>
+					<div id="Duration2">
+                        {% if user.profit == None %}
+                            <span>0 Days</span>
+                        {% else %}
+                            <span>{{user.duration}} Lot</span>
+                        {% endif %}
 					</div>
 					<svg class="Ellipse_90_cc">
 						<ellipse id="Ellipse_90_cc" rx="7" ry="7" cx="7" cy="7">
@@ -208,11 +224,11 @@
 			</div>
 		</div>
 		<div id="text">
-			<div id="Shzmon_Ng">
-				<span>Shzmon Ng</span>
+			<div id="Username">
+				<span>{{user.name}}</span>
 			</div>
-			<div id="CIMB_7055362212">
-				<span>CIMB 7055362212</span>
+			<div id="Bank">
+				<span>{{user.bank}} {{user.bank_no}}</span>
 			</div>
 		</div>
 	</div>

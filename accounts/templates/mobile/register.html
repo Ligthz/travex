@@ -11,9 +11,9 @@
 <body>
 <section class="sign-in"> 
     <div class="main-page">
-        <p>{{form.errors}}</p>
-        <div class="name">
-            <img class="logo2" src="{% static 'images/logo2.png' %}">
+        <p><br>{{form.errors}}</p>
+        <div class="name_reg">
+            <!--img class="logo_reg" src="{% static 'images/logo2.png' %}"-->
             <!--h1>Travex Premium Trading</h1-->
         </div>
         <div class="form-regs">
@@ -24,6 +24,8 @@
                 {{form.phone}}
                 {{form.password1}}
                 {{form.password2}}
+                {{form.bank}}
+                {{form.bank_account}}
                 <input class="s-btn" type="submit" value="Register Account">
             </form>
         </div>  

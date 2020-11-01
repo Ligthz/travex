@@ -45,11 +45,11 @@ class Message(models.Model):
 class Account(AbstractBaseUser):
     username = models.CharField(max_length=25, unique=True)
     name = models.CharField(max_length=100)
-    phone = models.CharField(max_length=16, null=True)
+    phone = models.CharField(max_length=16, null=True, blank=True)
     profile_pic = models.ImageField(default="profile1.png", null=True, blank=True)
 
-    bank = models.CharField(max_length=50, null=True, blank=True)
-    bank_account = models.CharField(max_length=30, null=True, blank=True)
+    bank = models.CharField(max_length=50)
+    bank_account = models.CharField(max_length=30)
 
     profit = models.CharField(max_length=15, null=True, default="0")
     duration = models.CharField(max_length=10, null=True, default="0")
@@ -78,8 +78,11 @@ class Account(AbstractBaseUser):
     def has_module_perms(self, app_label):
         return True
 
+    def para(self):
+        return ["Name","Phone","Profit","Duration","Deposit","Amount"," "]
+
     def list(self):
-        return [self.username,self.name,self.phone,self.profile_pic,self.date_created,self.last_login,self.Messages]
+        return [self.name,self.phone,self.profit,self.duration,self.deposit,self.amount,self.id]
 
 
 class UserAction(models.Model):
@@ -89,3 +92,26 @@ class UserAction(models.Model):
     
     def __str__(self):
         return str(user)+":"+action
+
+class Blog(models.Model):
+    author = models.ForeignKey(Account, on_delete=models.CASCADE)
+    date_created = models.DateTimeField(auto_now_add=True)
+    body = models.CharField(max_length=200)
+    image = models.ImageField(null=True, blank=True)
+
+class Portfolio_data(models.Model):
+    average_profit = models.CharField(max_length=15)
+    average_return_of_investment = models.CharField(max_length=15)
+    total_investment_profit = models.CharField(max_length=15)
+    total_investment_contra = models.CharField(max_length=15)
+    total_investment_lost = models.CharField(max_length=15)
+
+
+class About_data(models.Model):
+    founded = models.CharField(max_length=15)
+    header = models.CharField(max_length=250)
+    topic1 = models.CharField(max_length=500)
+    body1 = models.CharField(max_length=500)
+    topic2 = models.CharField(max_length=500)
+    body2 = models.CharField(max_length=500)
+    

@@ -12,7 +12,8 @@ urlpatterns = [
 	path('travex-control-logout/', views.logoutUser, name="logout"),
 
     # Indexes / Dashboard
-    path('travex-control/', views.home, name="home"),
+    path('travex-control/', views.home, name="control-home"),
+    path('travex-user-data/', views.data_landing, name="control-user"),
     path('user/', views.userPage, name="user-page"),
     path('account/', views.accountSettings, name="account"),
 

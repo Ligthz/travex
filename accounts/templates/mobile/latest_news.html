@@ -97,117 +97,25 @@
 	</div>
 	<img onclick="location.href='{% url 'mobile-home' %}'" id="logo2" src="{% static 'images/logo2.png' %}" srcset="{% static 'images/logo2.png'%} 1x">
 	<div id="content">
-		<div id="post-image" class="post_image">
-			<svg class="form">
-				<rect id="form" rx="40" ry="40" x="0" y="0" width="343" height="271">
-				</rect>
-			</svg>
-			<div id="content_bi">
-				<div id="iconschevron" class="icons_chevron">
-					<svg class="bg_bk">
-						<rect id="bg_bk" rx="0" ry="0" x="0" y="0" width="24" height="24">
-						</rect>
-					</svg>
-					<svg class="line">
-						<rect id="line" rx="1" ry="1" x="0" y="0" width="8" height="2">
-						</rect>
-					</svg>
-					<svg class="line_bm">
-						<rect id="line_bm" rx="1" ry="1" x="0" y="0" width="8" height="2">
-						</rect>
-					</svg>
-				</div>
-				<div id="Believe_you_can_and_youre_half">
-					<span>Believe you can and you’re halfway there.</span>
-				</div>
-				<img id="picture" src="{% static 'images/picture.png' %}" srcset="{% static 'images/picture.png'%} 1x">
-				<div id="author" class="author">
-					<div id="Jonathan_Lecluze">
-						<span>Jonathan Lecluze</span>
-					</div>
-					<div id="ID8_Nov">
-						<span>8 Nov</span>
-					</div>
-					<img id="avatar" src="{% static 'images/avatar.png' %}" srcset="{% static 'images/avatar.png'%} 1x">
-				</div>
-			</div>
-		</div>
-		<div id="post" class="post">
-			<svg class="bg_bu">
-				<rect id="bg_bu" rx="40" ry="40" x="0" y="0" width="343" height="234">
-				</rect>
-			</svg>
-			<div id="content_bv">
-				<div id="Believe_in_yourself_take_on_yo">
-					<span>Believe in yourself, take on your challenges, dig deep within yourself to conquer fears. Never let anyone bring you down. You got to keep going.</span>
-				</div>
-				<div id="author_bx" class="author">
-					<div id="Jerome_Gaveau">
-						<span>Jerome Gaveau</span>
-					</div>
-					<div id="ID8_Nov_bz">
-						<span>8 Nov</span>
-					</div>
-					<img id="avatar_b" src="{% static 'images/avatar_b.png' %}" srcset="{% static 'images/avatar_b.png'%} 1x">
-				</div>
-				<div id="iconschevron_b" class="icons_chevron">
-					<svg class="bg_b">
-						<rect id="bg_b" rx="0" ry="0" x="0" y="0" width="24" height="24">
-						</rect>
-					</svg>
-					<svg class="line_b">
-						<rect id="line_b" rx="1" ry="1" x="0" y="0" width="8" height="2">
-						</rect>
-					</svg>
-					<svg class="line_ca">
-						<rect id="line_ca" rx="1" ry="1" x="0" y="0" width="8" height="2">
-						</rect>
-					</svg>
-				</div>
-				<svg class="divider">
-					<rect id="divider" rx="0.5" ry="0.5" x="0" y="0" width="281" height="1">
-					</rect>
-				</svg>
-			</div>
-		</div>
-		<div id="post_b" class="post">
-			<svg class="bg_ca" viewBox="0 0 343 234">
-				<path id="bg_ca" d="M 40 0 L 303 0 C 325.0914001464844 0 343 17.90860939025879 343 40 L 343 194 C 343 216.0913848876953 325.0914001464844 234 303 234 L 40 234 C 17.90860939025879 234 0 216.0913848876953 0 194 L 0 40 C 0 17.90860939025879 17.90860939025879 0 40 0 Z">
-				</path>
-			</svg>
-			<div id="content_b">
-				<div id="Believe_in_yourself_take_on_yo_b">
-					<span>Believe in yourself, take on your challenges, dig deep within yourself to conquer fears. Never let anyone bring you down. You got to keep going.</span>
-				</div>
-				<div id="author_ca" class="author">
-					<div id="Maxime_Barbosa">
-						<span>Maxime Barbosa</span>
-					</div>
-					<div id="ID8_Nov_cc">
-						<span>8 Nov</span>
-					</div>
-					<img id="avatar_cd" src="{% static 'images/avatar_cd.png' %}" srcset="{% static 'images/avatar_cd.png'%} 1x">
-				</div>
-				<div id="iconschevron_ce" class="icons_chevron">
-					<svg class="bg_cf">
-						<rect id="bg_cf" rx="0" ry="0" x="0" y="0" width="24" height="24">
-						</rect>
-					</svg>
-					<svg class="line_cg">
-						<rect id="line_cg" rx="1" ry="1" x="0" y="0" width="8" height="2">
-						</rect>
-					</svg>
-					<svg class="line_ch">
-						<rect id="line_ch" rx="1" ry="1" x="0" y="0" width="8" height="2">
-						</rect>
-					</svg>
-				</div>
-				<svg class="divider_ci">
-					<rect id="divider_ci" rx="0.5" ry="0.5" x="0" y="0" width="281" height="1">
-					</rect>
-				</svg>
-			</div>
-		</div>
+        {% for content in contents %}
+            <div id="post-image" class="post_image">
+                <div id="content_bi">
+                    <div id="Believe_you_can_and_youre_half">
+                        <span>{{content.body}}</span>
+                    </div>
+                    <img id="picture" src="{{content.image.url}}" srcset="{{content.image.url}} 1x">
+                    <div id="author" class="author">
+                        <div id="Jonathan_Lecluze">
+                            <span>{{content.author.name}}</span>
+                        </div>
+                        <div id="ID8_Nov">
+                            <span>{{content.date_created}}</span>
+                        </div>
+                        <img id="avatar" src="{{content.author.profile_pic.url}}" srcset="{{content.author.profile_pic.url}} 1x">
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
 	</div>
 	<div onclick="application.goToTargetView(event)" id="Group_1786">
 		<svg class="Button_ck">
