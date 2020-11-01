@@ -1,0 +1,5 @@
+[client]
+database = 'travex'
+user = 'alex_tang'
+default-character-set = 'utf8'
+
