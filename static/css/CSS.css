@@ -9,15 +9,8 @@ body
 
 
 .sign-in{
-    width: 340px;
-    height: 625px;
-    padding: 15px 17px 15px 14px;
-    box-shadow: inset -8px -8px 8px 0 rgba(174, 174, 192, 0.25),
-                inset 8px 8px 8px 0 #fff,
-                -8px -8px 24px 0 #fff,
-                8px 8px 24px 0 rgba(174, 174, 192, 0.4);
-    border-radius:20px;
-    background-color:#F0F0F3;
+    width: 100%;
+    height: 100%;
     position:absolute;
     left:50%;
     top:50%;
@@ -30,8 +23,6 @@ body
 .main-page{
  width: 100%;
  height: 55%;
- background-color:#F0F0F3;
- border-radius: 0% 0% 50% 50% / 0% 0% 30% 30%;
  
  background-image:url("../images/Rectangle_5.png");
  background-size: cover;
