@@ -409,7 +409,7 @@
 #content_bi {
 	position: absolute;
 	width: 279px;
-	height: 190px;
+	height: auto;
 	left: 32px;
 	top: 27px;
 	overflow: visible;
@@ -459,13 +459,12 @@
 #Believe_you_can_and_youre_half {
 	left: 0px;
 	top: 54px;
-	position: absolute;
+	position: relative;
 	overflow: visible;
-	width: 269px;
-	white-space: nowrap;
-	line-height: 22px;
+	width: 100%;
+	line-height: 17px;
 	margin-top: -4.5px;
-	text-align: left;
+	text-align: justify;
 	font-family: Montserrat;
 	font-style: normal;
 	font-weight: normal;
@@ -473,11 +472,11 @@
 	color: rgba(129,120,137,1);
 }
 #picture {
-	position: absolute;
-	width: 279px;
-	height: 104px;
+	position: relative;
+	width: auto;
+	height: auto;
 	left: 0px;
-	top: 86px;
+	top: 70px;
 	overflow: visible;
 }
 #author {
