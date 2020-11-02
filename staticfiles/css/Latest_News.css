@@ -13,16 +13,18 @@
 	box-sizing: border-box;
 	border: none;
 }
+
 #Latest_News {
 	position: absolute;
 	width: 100%;
-	height: 100%;
+    height: 100%;
 	background-color: rgba(48,26,159,1);
-	--web-view-name: Latest News;
-	--web-view-id: Latest_News;
+	overflow: scroll;
+	overflow-x: hidden;
+	--web-view-name: Dashboard;
+	--web-view-id: Dashboard;
 	--web-scale-on-resize: true;
 	--web-enable-deep-linking: true;
-	overflow: auto;
 }
 @keyframes fadein {
 
@@ -221,16 +223,18 @@
 	transform: matrix(1,0,0,1,0,0);
 }
 #top_ {
-	position: absolute;
-	width: 375px;
+    position: absolute;
+    background-color: ghostwhite;
+    border-bottom-left-radius: 20%;
+	width: 100%;
 	height: 219px;
 	left: 0px;
-	top: 0px;
+	top: -1px;
 	overflow: visible;
 }
 #HeaderLight {
 	position: absolute;
-	width: 375px;
+	width: 100%;
 	height: 219px;
 	left: 0px;
 	top: 0px;
@@ -250,7 +254,7 @@
 }
 #tab3_optionsdark {
 	position: absolute;
-	width: 362px;
+	width: 100%;
 	height: 48px;
 	left: 0px;
 	top: 156px;
@@ -292,7 +296,7 @@
 }
 #About_Traves {
 	opacity: 0.6;
-	left: 277px;
+	left: 75%;
 	top: 17px;
 	position: absolute;
 	overflow: visible;
@@ -320,12 +324,12 @@
 	position: absolute;
 	width: 89.014px;
 	height: 32px;
-	left: 103px;
+	left: 31%;
 	top: 8px;
 	transform: matrix(1,0,0,1,0,0);
 }
 #Latest_News_bc {
-	left: 110px;
+	left: 31.5%;
 	top: 17px;
 	position: absolute;
 	overflow: visible;
@@ -343,7 +347,7 @@
 }
 #Portfolio {
 	opacity: 0.6;
-	left: 205px;
+	left: 58%;
 	top: 17px;
 	position: absolute;
 	overflow: visible;
@@ -365,24 +369,26 @@
 }
 #logo2 {
 	filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.161));
-	position: absolute;
-	width: 261px;
-	height: 82px;
-	left: 57px;
-	top: 69px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+	width: 280px;
+    height: 90px;
+	top: 65px;
 	overflow: visible;
 }
 #content {
 	position: absolute;
-	width: 343px;
+	width: 100%;
 	height: 772px;
 	left: 16px;
 	top: 243px;
 	overflow: scroll;
 }
-#post-image {
+.post_image {
 	position: relative;
-	width: 343px;
+	width: 90%;
 	height: 300px;
 	left: 0px;
 	top: 0px;
@@ -408,7 +414,7 @@
 }
 #content_bi {
 	position: absolute;
-	width: 279px;
+	width: 85%;
 	height: auto;
 	left: 32px;
 	top: 27px;
@@ -473,8 +479,6 @@
 }
 #picture {
 	position: relative;
-	width: auto;
-	height: auto;
 	left: 0px;
 	top: 70px;
 	overflow: visible;
@@ -815,8 +819,8 @@
 	position: absolute;
 	width: 81px;
 	height: 32px;
-	left: 281px;
-	top: 17px;
+	left: 75%;
+	top: 5%;
 	overflow: visible;
 	--web-animation: fadein 0.3s ease-out;
 	--web-action-type: page;

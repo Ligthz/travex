@@ -99,21 +99,7 @@ def record_action(user,action):
 @admin_only
 def home(request):
     user = request.user
-    if request.method == 'POST':
-        #datas = []
-        #return JsonResponse({"success":True,"datas":datas})
-        #user_id = request.POST.get('')
-        #user = Account.objects.get()
-        print(request.POST)
-        for submision in request.POST:
-            if "Submission-" in submision:
-                user_id = int(submision.split("-")[-1])
-                user = Account.objects.get(id=user_id)
-                break
-        return render(request, 'accounts/account_settings.html',{'user':user})
-
-    #record_action(request.user,"Home")
-
+    
     current_time = time_now()
     day_range = [current_time-datetime.timedelta(days=1),current_time]
     week_range = [current_time-datetime.timedelta(days=7),current_time]
@@ -151,19 +137,7 @@ def userPage(request):
 @admin_only
 def data_landing(request):
     user = request.user    
-    if request.method == 'POST':
-        #datas = []
-        #return JsonResponse({"success":True,"datas":datas})
-        #user_id = request.POST.get('')
-        #user = Account.objects.get()
-        print(request.POST)
-        for submision in request.POST:
-            if "Submission-" in submision:
-                user_id = int(submision.split("-")[-1])
-                user = Account.objects.get(id=user_id)
-                break
-        return render(request, 'accounts/account_settings.html',{'user':user})
-
+    
     data = []
     today_login_user = Account.objects.filter(is_staff=False, is_active=True)
     if today_login_user.count() == 0:
@@ -182,16 +156,27 @@ def data_landing(request):
 
 # ======================== Account Setting =========================================
 
+def str_to_num(number):
+    number = str(round(float(number),2))
+    if len(number.split(".")[-1]) == 1:
+        number += "0"
+    return number
+
 @login_required(login_url='login')
-def accountSettings(request):
+def accountSettings(request,user_id):
     user = request.user
-    form = AccountForm(instance=user)
+    this_user = Account.objects.get(id=user_id)
 
     if request.method == 'POST':
-        form = AccountForm(request.POST, request.FILES,instance=user)
-        if form.is_valid():
-            form.save()
+        print(request.POST)
+        this_user_id = request.POST.get("id")
+        this_user = Account.objects.get(id=this_user_id)
+        this_user.profit = str_to_num(request.POST.get("profit"))
+        this_user.duration = str_to_num(request.POST.get("duration"))
+        this_user.deposit = str_to_num(request.POST.get("deposit"))
+        this_user.amount = str_to_num(request.POST.get("amount"))
+        this_user.save()
+        return redirect('control-user')
 
 
-    context = {'form':form}
-    return render(request, 'accounts/account_settings.html', context)
+    return render(request, 'accounts/account_settings.html', {'this_user':this_user})

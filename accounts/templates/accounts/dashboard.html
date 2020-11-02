@@ -36,37 +36,34 @@
             {% if NoData == True %}
                 <h3> No user login last 24 hours ago. </h3>
             {% else %}
-                <form method="post" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    {% for para in data.0 %}
-                                        <th>{{para}}</th>
-                                    {% endfor %}
-                                </tr>
-                            </thead>
-                            <tfoot>
-                                <tr>
-                                </tr>
-                            </tfoot>
-                            <tbody>
-                                {% for rw in data.1 %}
-                                <tr>
-                                    {% for data in rw %}
-                                        {% if forloop.counter0 == 6 %}
-                                            <td><input class="btn btn-primary" style="width:100%" type="submit" name="Submission-{{data}}" value="Edit"/></td>
-                                        {% else %}
-                                            <td>{{data}}</td>
-                                        {% endif %}
-                                    {% endfor %}
-                                </tr>
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                {% for para in data.0 %}
+                                    <th>{{para}}</th>
                                 {% endfor %}
-                            </tbody>
-                        </table>
-                    </div>
-                </form>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            {% for rw in data.1 %}
+                            <tr>
+                                {% for data in rw %}
+                                    {% if forloop.counter0 == 6 %}
+                                        <td><button class="btn btn-primary" style="width:100%" onclick="location.href='{% url 'account' data %} '" name="Submission-{{data}}">Edit</button></td>
+                                    {% else %}
+                                        <td>{{data}}</td>
+                                    {% endif %}
+                                {% endfor %}
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
             {% endif %}
         </div>
     </div>

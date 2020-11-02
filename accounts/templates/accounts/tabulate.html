@@ -14,8 +14,6 @@
             {% if NoData == True %}
                 <h3> No data recorded during these period. </h3>
             {% else %}
-            <form method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
@@ -34,7 +32,7 @@
                         <tr>
                             {% for data in rw %}
                                         {% if forloop.counter0 == 6 %}
-                                            <td><input class="btn btn-primary" style="width:100%" type="submit" name="Submission-{{data}}" value="Edit"/></td>
+                                            <td><button class="btn btn-primary" style="width:100%" onclick="location.href='{% url 'account' data %} '" name="Submission-{{data}}">Edit</button></td>
                                         {% else %}
                                             <td>{{data}}</td>
                                         {% endif %}
@@ -44,7 +42,6 @@
                     </tbody>
                 </table>
             </div>
-            </form>
             {% endif %}
         </div>
     </div>

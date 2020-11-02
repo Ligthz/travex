@@ -15,7 +15,7 @@ urlpatterns = [
     path('premium-control/', views.home, name="control-home"),
     path('premium-user-data/', views.data_landing, name="control-user"),
     path('user/', views.userPage, name="user-page"),
-    path('account/', views.accountSettings, name="account"),
+    path('account/<int:user_id>/', views.accountSettings, name="account"),
 
     # Information Details
     #path('machine/', views.machine, name="machine"),

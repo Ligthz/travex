@@ -16,9 +16,10 @@
 #Portfolio {
 	position: absolute;
 	width: 100%;
-	height: 812px;
+    height: 100%;
 	background-color: rgba(97,79,255,0.671);
-	overflow: hidden;
+	overflow: scroll;
+	overflow-x: hidden;
 	--web-view-name: Portfolio;
 	--web-view-id: Portfolio;
 	--web-scale-on-resize: true;
@@ -36,7 +37,7 @@
 }
 #content {
 	position: absolute;
-	width: 494px;
+	width: 100%;
 	height: 812px;
 	left: 0px;
 	top: 0px;
@@ -44,8 +45,8 @@
 }
 #card {
 	position: absolute;
-	width: 494px;
-	height: 392px;
+	width: 100%;
+	height: 180px;
 	left: 0px;
 	top: 420px;
 	overflow: visible;
@@ -62,7 +63,7 @@
 .bg {
 	position: absolute;
 	overflow: visible;
-	width: 375px;
+	width: 100%;
 	height: 392px;
 	left: 0px;
 	top: 0px;
@@ -73,7 +74,7 @@
 	top: 176px;
 	position: absolute;
 	overflow: visible;
-	width: 123px;
+	width: 100%;
 	white-space: nowrap;
 	line-height: 20px;
 	margin-top: -3px;
@@ -87,8 +88,8 @@
 }
 #Repeat_Grid_5 {
 	position: absolute;
-	width: 462px;
-	height: 118px;
+	width: 85%;
+	height: 100%;
 	left: 32px;
 	top: 209px;
 	overflow: auto;
@@ -699,7 +700,7 @@
 }
 #card_b {
 	position: absolute;
-	width: 375px;
+	width: 100%;
 	height: 392px;
 	left: 0px;
 	top: 179px;
@@ -707,18 +708,19 @@
 }
 #bg_ca {
 	fill: rgba(212,127,166,1);
+	width: 120%;
 }
 .bg_ca {
 	position: absolute;
 	overflow: visible;
-	width: 375px;
+	width: 100%;
 	height: 392px;
 	left: 0px;
 	top: 0px;
 }
 #Mask_Group_9 {
 	position: absolute;
-	width: 375px;
+	width: 100%;
 	height: 279px;
 	left: 0px;
 	top: 113px;
@@ -741,8 +743,8 @@
 }
 #days {
 	opacity: 0.402;
-	left: 139px;
-	top: 287px;
+	left: 75%;
+	top: 80%;
 	position: absolute;
 	overflow: visible;
 	width: 109px;
@@ -751,7 +753,7 @@
 	font-family: Montserrat;
 	font-style: normal;
 	font-weight: lighter;
-	font-size: 48px;
+	font-size: 25px;
 	color: rgba(255,255,255,1);
 }
 #Average_Return_of_Investment {
@@ -825,7 +827,7 @@
 }
 #card_ck {
 	position: absolute;
-	width: 375px;
+	width: 100%;
 	height: 392px;
 	left: 0px;
 	top: 0px;
@@ -833,7 +835,7 @@
 }
 #graph {
 	position: absolute;
-	width: 375px;
+	width: 100%;
 	height: 392px;
 	left: 0px;
 	top: 0px;
@@ -841,20 +843,22 @@
 }
 #bg_cm {
 	fill: rgba(255,255,255,1);
+	width: 100%;
 }
 .bg_cm {
 	position: absolute;
-	overflow: visible;
-	width: 375px;
+    overflow: visible;
+    background-color: white;
+	width: 100%;
 	height: 392px;
 	left: 0px;
 	top: 0px;
 }
 #Mask_Group_8 {
 	position: absolute;
-	width: 375px;
+	width: 150%;
 	height: 275px;
-	left: 0px;
+	left: -30%;
 	top: 117px;
 	overflow: visible;
 }
@@ -875,13 +879,13 @@
 }
 #___month {
 	opacity: 0.4;
-	left: 213px;
-	top: 297px;
+	left: 75%;
+	top: 80%;
 	position: absolute;
 	overflow: visible;
 	width: 138px;
 	white-space: nowrap;
-	text-align: left;
+    text-align: left;
 	font-family: Montserrat;
 	font-style: normal;
 	font-weight: lighter;
@@ -959,16 +963,18 @@
 }
 #logo2 {
 	filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.161));
-	position: absolute;
-	width: 261px;
-	height: 82px;
-	left: 57px;
-	top: 69px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+	width: 280px;
+    height: 90px;
+	top: 65px;
 	overflow: visible;
 }
 #tab3_optionsdark {
 	position: absolute;
-	width: 361px;
+	width: 100%;
 	height: 48px;
 	left: 0px;
 	top: 151px;
@@ -976,7 +982,7 @@
 }
 #Group_1782 {
 	position: absolute;
-	width: 361px;
+	width: 100%;
 	height: 48px;
 	left: 0px;
 	top: 0px;
@@ -989,11 +995,12 @@
 #bg_cz {
 	opacity: 0;
 	fill: rgba(255,255,255,1);
+	width: 100%;
 }
 .bg_cz {
 	position: absolute;
 	overflow: visible;
-	width: 361px;
+	width: 100%;
 	height: 48px;
 	left: 0px;
 	top: 0px;
@@ -1022,7 +1029,7 @@
 }
 #About_Traves {
 	opacity: 0.6;
-	left: 276px;
+	left: 75%;
 	top: 17px;
 	position: absolute;
 	overflow: visible;
@@ -1040,9 +1047,9 @@
 }
 #Group_34 {
 	position: absolute;
-	width: 75.893px;
+	width: 75px;
 	height: 32px;
-	left: 189.336px;
+	left: 54.5%;
 	top: 8px;
 	overflow: visible;
 }
@@ -1085,7 +1092,7 @@
 }
 #Latest_News {
 	opacity: 0.6;
-	left: 103px;
+	left: 32%;
 	top: 17px;
 	position: absolute;
 	overflow: visible;
@@ -1109,8 +1116,8 @@
 	position: absolute;
 	width: 81px;
 	height: 32px;
-	left: 281px;
-	top: 17px;
+	left: 75%;
+	top: 5%;
 	overflow: visible;
 	--web-animation: fadein 0.3s ease-out;
 	--web-action-type: page;

@@ -93,10 +93,18 @@ class UserAction(models.Model):
     def __str__(self):
         return str(user)+":"+action
 
+class UserTransactions(models.Model):
+    transaction = models.CharField(max_length=200)
+    user = models.ForeignKey(Account, on_delete=models.CASCADE)
+    date_created = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return str(date_created).split(".")[0]+" : "+transaction
+
 class Blog(models.Model):
     author = models.ForeignKey(Account, on_delete=models.CASCADE)
     date_created = models.DateTimeField(auto_now_add=True)
-    body = models.CharField(max_length=200)
+    body = models.CharField(max_length=1000)
     image = models.ImageField(null=True, blank=True)
 
 class Portfolio_data(models.Model):
