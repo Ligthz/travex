@@ -64,9 +64,9 @@
 					</div>
 					<div id="Profit2">
                         {% if user.profit == None %}
-                            <span>RM 0.00</span>
+                            <span>-</span>
                         {% else %}
-                            <span>RM {{user.profit}}</span>
+                            <span>{{user.profit}}</span>
                         {% endif %}
 					</div>
 					<svg class="Ellipse_90">
@@ -80,9 +80,9 @@
 					</div>
 					<div id="Deposit2">
                         {% if user.profit == None %}
-                            <span>0 Days</span>
+                            <span>-</span>
                         {% else %}
-                            <span>{{user.duration}} Days</span>
+                            <span>{{user.duration}}</span>
                         {% endif %}
 					</div>
 					<svg class="Ellipse_90_b">
@@ -96,9 +96,9 @@
 					</div>
 					<div id="Amount2">
                         {% if user.profit == None %}
-                            <span>0 Lot</span>
+                            <span>-</span>
                         {% else %}
-                            <span>{{user.amount}} Lot</span>
+                            <span>{{user.amount}}</span>
                         {% endif %}
 					</div>
 					<svg class="Ellipse_90_ca">
@@ -112,9 +112,9 @@
 					</div>
 					<div id="Duration2">
                         {% if user.profit == None %}
-                            <span>RM 0.00</span>
+                            <span>-</span>
                         {% else %}
-                            <span>RM {{user.deposit}}</span>
+                            <span>{{user.deposit}}</span>
                         {% endif %}
 					</div>
 					<svg class="Ellipse_90_cc">

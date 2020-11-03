@@ -153,6 +153,55 @@ def data_landing(request):
     return render(request, 'accounts/tabulate.html', {'NoData':NoData,'data':data})
 
 
+@login_required(login_url='login')
+@admin_only
+def new_transaction(request):
+    users = Account.objects.filter(is_admin=False,is_active=True,is_staff=False)
+    if request.method == 'POST':
+        this_user_id = request.POST.get('Section')
+        this_user = Account.objects.get(id=this_user_id)
+        if 'submit' in request.POST:
+            trans = request.POST.get('Transaction')
+            Transaction_object = UserTransaction(
+                user=this_user,
+                transaction=trans
+            )
+            Transaction_object.save()
+            print("Submit",trans)
+
+        return render(request, 'accounts/new_transaction.html', {'users':users,'this_user':this_user})
+    return render(request, 'accounts/new_transaction.html', {'users':users,'this_user':False})
+
+@login_required(login_url='login')
+@admin_only
+def view_transaction(request):
+    NoData = True
+    transactions = UserTransaction.objects.all()
+    data = []
+    if len(transactions)>0:
+        NoData = False
+        data.append(transactions[0].para())
+        data.append([])
+        for transaction in transactions:
+            data[1].append(transaction.list())
+
+    return render(request, 'accounts/view_transaction.html', {'NoData':NoData,'data':data})
+
+@login_required(login_url='login')
+@admin_only
+def edit_transaction(request,transaction_id):
+    this_transaction = UserTransaction.objects.get(id=transaction_id)
+    this_user = this_transaction.user
+    if request.method == 'POST':
+        if 'submit' in request.POST:
+            trans = request.POST.get('Transaction')
+            this_transaction.transaction=trans
+            this_transaction.save()
+            print("Submit",trans)
+            return redirect('view_transaction')
+    return render(request, 'accounts/edit_transaction.html', {'this_user':this_user})
+
+
 
 # ======================== Account Setting =========================================
 

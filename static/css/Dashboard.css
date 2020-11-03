@@ -17,7 +17,7 @@
 	position: absolute;
 	width: 100%;
     height: 100%;
-	background-color: rgba(97,79,255,0.671);
+	background-color:orangered;
 	overflow: scroll;
 	overflow-x: hidden;
 	--web-view-name: Dashboard;
@@ -363,7 +363,7 @@
 	overflow: visible;
 }
 #Button {
-	fill: rgba(255,131,79,1);
+	fill: red;
 }
 .Button {
 	position: absolute;
@@ -635,7 +635,7 @@
 	letter-spacing: -0.16071670532226562px;
 }
 #Ellipse_90 {
-	fill: rgba(138,86,172,1);
+	fill: red;
 }
 .Ellipse_90 {
 	position: absolute;
@@ -689,7 +689,7 @@
 	letter-spacing: -0.16071670532226562px;
 }
 #Ellipse_90_b {
-	fill: rgba(95,69,145,1);
+	fill: mediumvioletred;
 }
 .Ellipse_90_b {
 	position: absolute;
@@ -743,7 +743,7 @@
 	letter-spacing: -0.16071670532226562px;
 }
 #Ellipse_90_ca {
-	fill: rgba(149,153,179,1);
+	fill: orangered;
 }
 .Ellipse_90_ca {
 	position: absolute;
@@ -797,7 +797,7 @@
 	letter-spacing: -0.16071670532226562px;
 }
 #Ellipse_90_cc {
-	fill: rgba(79,141,203,1);
+	fill: darkred;
 }
 .Ellipse_90_cc {
 	position: absolute;

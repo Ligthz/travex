@@ -70,7 +70,7 @@ class Account(AbstractBaseUser):
     objects = MyAccountManager()
 
     def __str__(self):
-        return self.username
+        return self.name
 
     def has_perm(self, perm, obj=None):
         return self.is_admin
@@ -93,13 +93,19 @@ class UserAction(models.Model):
     def __str__(self):
         return str(user)+":"+action
 
-class UserTransactions(models.Model):
+class UserTransaction(models.Model):
     transaction = models.CharField(max_length=200)
     user = models.ForeignKey(Account, on_delete=models.CASCADE)
     date_created = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
-        return str(date_created).split(".")[0]+" : "+transaction
+        return self.transaction
+
+    def para(self):
+        return ["Date Created","User","Transaction",""]
+
+    def list(self):
+        return [str(self.date_created).split(".")[0],self.user,self.transaction,self.id]
 
 class Blog(models.Model):
     author = models.ForeignKey(Account, on_delete=models.CASCADE)

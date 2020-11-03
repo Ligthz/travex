@@ -1062,7 +1062,7 @@
 	overflow: visible;
 }
 #Button {
-	fill: rgba(255,131,79,1);
+	fill: red;
 }
 .Button {
 	overflow: visible;

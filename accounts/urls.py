@@ -16,6 +16,9 @@ urlpatterns = [
     path('premium-user-data/', views.data_landing, name="control-user"),
     path('user/', views.userPage, name="user-page"),
     path('account/<int:user_id>/', views.accountSettings, name="account"),
+    path('new_transaction/', views.new_transaction, name="new_transaction"),
+    path('view_transaction/', views.view_transaction, name="view_transaction"),
+    path('edit_transaction/<int:transaction_id>', views.edit_transaction, name="edit_transaction"),
 
     # Information Details
     #path('machine/', views.machine, name="machine"),

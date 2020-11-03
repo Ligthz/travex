@@ -24,7 +24,7 @@ class UserTransactionsAdmin(admin.ModelAdmin):
     list_filter = ["user"]
     search_fields = ["user","transaction"]
     class Meta:
-        model = UserTransactions
+        model = UserTransaction
 
 class MessageAdmin(admin.ModelAdmin):
     list_display = ["msg","date_created","is_seen"]
@@ -54,6 +54,6 @@ admin.site.register(Blog,BlogAdmin)
 admin.site.register(Portfolio_data,PortfolioAdmin)
 admin.site.register(About_data,About_dataAdmin)
 #admin.site.register(UserAction,UserActionAdmin)
-admin.site.register(UserTransactions,UserTransactionsAdmin)
+admin.site.register(UserTransaction,UserTransactionsAdmin)
 
 

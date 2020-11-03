@@ -18,7 +18,7 @@
 	position: absolute;
 	width: 100%;
     height: 100%;
-	background-color: rgba(48,26,159,1);
+	background-color: darkred;
 	overflow: scroll;
 	overflow-x: hidden;
 	--web-view-name: Dashboard;
@@ -317,7 +317,7 @@
 	letter-spacing: 0.04px;
 }
 #Button {
-	fill: rgba(255,131,79,1);
+	fill: red;
 }
 .Button {
 	overflow: visible;

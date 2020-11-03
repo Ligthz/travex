@@ -106,8 +106,9 @@ def get_events(time_range,**kwargs):
 @active_only
 def home(request):
     user = request.user
+    transactions = UserTransaction.objects.filter(user=user)
 
-    return render(request, 'mobile/dashboard.html',{'user': user})
+    return render(request, 'mobile/dashboard.html',{'user': user,'transactions':transactions})
 
 
 @login_required(login_url='mobile-login')
